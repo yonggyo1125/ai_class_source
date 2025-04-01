@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>회원가입</h1>
+        <form method="POST" action="join_ps.html">
+            <dl>
+                <dt>가입 구분</dt>
+                <dd>
+                    <input type="radio" name="joinType" id="type-business">
+                    <label for="type-business">사업자 회원</label>
+
+                    <input type="radio" name="joinType" id="type-member" checked>
+                    <label for="type-member">일반 회원</label>
+                    <!--
+                    <label>
+                        <input type="radio" name="joinType"> 사업자 회원
+                    </label>
+                    <label>
+                        <input type="radio" name="joinType"> 일반 회원
+                    </label>-->
+                </dd>
+            </dl>
+            <dl>
+                <dt>아이디</dt>
+                <dd>
+                    <input type="text" name="userId">
+                </dd>
+            </dl>
+            <dl>
+                <dt>회원명</dt>
+                <dd>
+                    <input type="text" name="userName">
+                </dd>
+            </dl>
+            <dl>
+                <dt>비밀번호</dt>
+                <dd>
+                    <input type="password" name="userPw">
+                </dd>
+            </dl>
+            <dl>
+                <dt>비밀번호 확인</dt>
+                <dd>
+                    <input type="password" name="confirmPw">
+                </dd>
+            </dl>
+            <dl>
+                <dt>취미</dt>
+                <dd>
+                    <input type="checkbox" id="hobby1" name="hobby">
+                    <label for="hobby1">피아노 치기</label>
+
+                    <input type="checkbox" id="hobby2" name="hobby">
+                    <label for="hobby2">독서하기</label>
+
+                    <input type="checkbox" id="hobby3" name="hobby">
+                    <label for="hobby3">운동하기</label>
+                </dd>
+            </dl>
+            <!--<input type="submit" value="가입하기">-->
+            <button type="reset">다시입력</button>
+            <button type="submit">가입하기</button>
+        </form>
+    </body>
+</html>
