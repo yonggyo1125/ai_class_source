@@ -22,8 +22,29 @@
             ul li:nth-child(9) {
                 background: gray;
             } */
+             /*
             ul li:nth-child(2n + 1) { /* 홀수 번째 요소 마다 선택! */
+               /* background: gray;
+            } */
+            /*
+            ul li:nth-of-type(2n + 1) {
                 background: gray;
+            } */
+            
+            ul li:not(.menu5) { /* .menu5 요소만 제외 모든 li 선택 */
+                background: green;
+            }
+
+            ul::before { /* ul 태그 자식 요소의 첫번째 추가 */
+                 width: 100px;
+                 height: 50px;
+                 background: red;
+                 content: '내용!!';
+            }
+
+            ul::after {
+                background: blue;
+                content: '마지막!!';
             }
 
         </style>
@@ -32,7 +53,7 @@
             <li>메뉴2</li>
             <li>메뉴3</li>
             <li>메뉴4</li>
-            <li>메뉴5</li>
+            <li class="menu5">메뉴5</li>
             <li>메뉴6</li>
             <li>메뉴7</li>
             <li>메뉴8</li>
