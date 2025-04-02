@@ -5,12 +5,20 @@
     </head>
     <body>
         <style>
-            li {
-                
+            ul li { /* 조상 자손 선택자 */
+                background: green;
+            }
+
+            ol span {
+                color: red;
+            }
+
+            .menu > span { /* 부모 자식 선택자 */
+                background: orange;
             }
         </style>
         <ul>
-            <li>메뉴1</li>
+            <li><span>메뉴1</span></li>
             <li>메뉴2</li>
             <li>메뉴3</li>
             <li>메뉴4</li>
@@ -18,7 +26,13 @@
         </ul>
 
         <ol>
-            <li>메뉴1</li>
+            <li class="menu">
+                <span>메뉴1</span>
+                <div>
+                    서브 메뉴
+                    <span>메뉴..</span>
+                </div>
+            </li>
             <li>메뉴2</li>
             <li>메뉴3</li>
             <li>메뉴4</li>
