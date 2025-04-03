@@ -1,0 +1,29 @@
+/* 기본 스타일 초기화 S */
+body {
+    margin: 0;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0; 
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+img {
+    border: 0;
+}
+/* 기본 스타일 초기화 E */
+
+/* 공통 스타일 S */
+* {
+    box-sizing: border-box;
+}
+/* 공통 스타일 E */

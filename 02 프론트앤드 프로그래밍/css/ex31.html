@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <style>
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                height: 100px;
+                display: flex;
+                background: #ccc;
+            }
+        
+            li {
+                width: 0;
+            }
+
+            li:nth-of-type(1) {
+                background: red;
+                flex-grow: 1;
+            }
+
+            li:nth-of-type(2) {
+                background: blue;
+                flex-grow: 1;
+            }
+
+            li:nth-of-type(3) {
+                background: green;
+                flex-grow: 1;
+            }
+        </style>
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2메뉴2메뉴2메뉴2메뉴2메뉴2메뉴2메뉴2메뉴2메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+    </body>
+</html>
