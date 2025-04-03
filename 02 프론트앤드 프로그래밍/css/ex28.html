@@ -10,6 +10,8 @@
                 margin: 0;
                 padding: 0;
                 height: 100px;
+                display: flex;
+                background: #ccc;
             }
             
             li {
@@ -27,8 +29,68 @@
             li:nth-of-type(3) {
                 background: green;
             }
+
+            .flex1 {
+                justify-content: flex-start;
+            }
+
+            .flex2 {
+                justify-content: flex-end;
+            }
+
+            .flex3 {
+                justify-content: center;
+            }
+
+            .flex4 {
+                justify-content: space-between;
+            }
+
+            .flex5 {
+                justify-content: space-around;
+            }
+
+            .flex6 {
+                justify-content: space-evenly;
+            }
         </style>
-        <ul>
+        <h1>justify-content: flex-start</h1>
+        <ul class="flex1">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>justify-content: flex-end</h1>
+        <ul class="flex2">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>justify-content: center</h1>
+        <ul class="flex3">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>justify-content: space-between</h1>
+        <ul class="flex4">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>justify-content: space-around</h1>
+        <ul class="flex5">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>justify-content: space-evenly</h1>
+        <ul class="flex6">
             <li>메뉴1</li>
             <li>메뉴2</li>
             <li>메뉴3</li>
