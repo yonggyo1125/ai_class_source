@@ -15,8 +15,27 @@
                 float: left;
                /* float: right; */
             }
+            
+            .clear {
+                clear: left;
+                display: block;
+            }
+
+            .menus::after {
+                content: '';
+                clear: left;
+                display: block;
+            }
         </style>
         <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <span class="clear"></span>
+        </ul>
+        <div>메뉴 설명...</div>
+
+        <ul class="menus">
             <li>메뉴1</li>
             <li>메뉴2</li>
             <li>메뉴3</li>
