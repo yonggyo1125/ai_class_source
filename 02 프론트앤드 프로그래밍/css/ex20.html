@@ -21,11 +21,40 @@
                 background: blue;
                 position: absolute; 
                 left: 100px; 
+                /* top: 100px; */
+                bottom: 100px;
+            }
+
+            .box3 {
+                background: green;
+                position: absolute;
+                left: 250px;
                 top: 100px;
+            }
+            
+            .box4 {
+                background: pink;
+                bottom: 100px;
+                right: 100px;
+                position: fixed;
+            }
+
+            .wrapper {
+                position: relative;
+                margin: 250px;
+                width: 800px;
+                height: 20000px;
+                border: 1px solid blue;
             }
         </style>
 
         <div class="box box1"></div>
         <div class="box box2"></div>
+        
+        <div class="box box4"></div>
+
+        <div class="wrapper">
+            <div class="box box3"></div>
+        </div>
     </body>
 </html>
