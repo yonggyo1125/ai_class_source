@@ -10,6 +10,8 @@
                 margin: 0;
                 padding: 0;
                 height: 100px;
+                display: flex;
+                background: #ccc;
             }
             
             li {
@@ -27,8 +29,46 @@
             li:nth-of-type(3) {
                 background: green;
             }
+
+            .flex1 {
+                flex-direction: row;
+            }
+
+            .flex2 {
+                flex-direction: row-reverse;
+            }
+
+            .flex3 {
+                flex-direction: column;
+            }
+
+            .flex4 {
+                flex-direction: column-reverse;
+            }
         </style>
-        <ul>
+        <h1>flex-direction: row</h1>
+        <ul class="flex1">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+        
+        <h1>flex-direction: row-reverse</h1>
+        <ul class="flex2">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>flex-direction: column</h1>
+        <ul class="flex3">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+
+        <h1>flex-direction: column-reverse</h1>
+        <ul class="flex4">
             <li>메뉴1</li>
             <li>메뉴2</li>
             <li>메뉴3</li>
