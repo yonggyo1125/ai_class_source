@@ -51,6 +51,10 @@ h2 {
     margin: 20px 0;
     text-align: center;
 }
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+}
 /* 공통 스타일 E */
 
 /* 헤더 영역 S */
