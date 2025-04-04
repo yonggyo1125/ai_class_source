@@ -84,4 +84,21 @@ header .right a:last-of-type {
 header .left button:first-of-type {
     margin-right: 22px;
 }
+
+header .left button {
+    width: 25px;
+    height: 20px;
+    border: 0;
+}
+
+header .left .more-menu {
+    background: #fff url("../images/more_btn.png") no-repeat center center;
+    background-size: contain;
+}
+
+header .left .search-btn {
+    background: #fff url("../images/search.png") no-repeat center center;
+    background-size: contain;
+}
+
 /* 헤더 영역 E */
