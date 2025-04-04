@@ -8,5 +8,6 @@ window.addEventListener("DOMContentLoaded", function() {
             el: ".swiper-pagination",
             clickable: true,
         },
+        loop: true,
     });
 });

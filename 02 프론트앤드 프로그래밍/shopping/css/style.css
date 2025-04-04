@@ -140,4 +140,14 @@ nav a {
 .main-banner .swiper-pagination-bullet-active {
     opacity: 1;
 }
+
+.main-banner .swiper-button-prev,
+.main-banner .swiper-button-next {
+    color: #fff;
+}
+
+.main-banner .swiper-pagination {
+    bottom: 10px;
+}
+
 /* 메인 배너 E */
