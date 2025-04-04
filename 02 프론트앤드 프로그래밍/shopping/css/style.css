@@ -127,6 +127,7 @@ nav a {
 
 .main-banner .swiper-slide img {
     width: 100%;
+    display: block;
 }
 
 .main-banner .swiper-pagination-bullet {
@@ -151,3 +152,30 @@ nav a {
 }
 
 /* 메인 배너 E */
+
+/* 서브 메뉴 S */
+.sub-menus {
+    border: 10px solid #ededed;
+    border-bottom-width: 9px;
+    border-left: 0;
+    border-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sub-menus a {
+    width: calc(100% / 3);
+    height: 50px;
+    line-height: 49px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.077rem;
+    border-bottom: 1px solid #ededed;
+    border-left: 1px solid #ededed;
+}
+
+.sub-menus a:nth-of-type(3n + 1) {
+    border-left: 0;
+}
+
+/* 서브 메뉴 E */
