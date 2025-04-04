@@ -209,3 +209,47 @@ nav a {
 }
 
 /* 하단 퀵 버튼 E */
+
+/* 상품 영역 S */
+.products {
+    padding: 0 15px;
+}
+
+.products ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products ul li {
+    width: calc(50% - 8px);
+    margin-bottom: 30px;
+}
+
+.products ul li:nth-of-type(2n + 1) {
+    margin-right: 16px;
+}
+
+.products .product-image {
+    width: 100%; 
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.products .price-info {
+    font-size: 1.154rem;
+}
+
+.products .price-info span {
+    font-size: 1.39rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.products .product-name {
+    font-size: 1.154rem;
+    color: #3e3d3c;
+    word-break: break-all;
+}
+
+/* 상품 영역 S */
