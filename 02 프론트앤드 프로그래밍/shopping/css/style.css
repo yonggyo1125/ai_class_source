@@ -102,3 +102,19 @@ header .left .search-btn {
 }
 
 /* 헤더 영역 E */
+
+/* 사이트 주 메뉴 S */
+nav {
+    display: flex;
+    height: 44px;
+}
+
+nav a {
+    width: 0;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 44px;
+    color: #494949;
+}
+
+/* 사이트 주 메뉴 E */
