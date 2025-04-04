@@ -179,3 +179,21 @@ nav a {
 }
 
 /* 서브 메뉴 E */
+
+/* 하단 퀵 버튼 S */
+.quick-buttons {
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+}
+
+.quick-buttons img {
+    display: block;
+    width: 50px;
+}
+
+.quick-buttons a + a img {
+    margin-top: 10px;
+}
+
+/* 하단 퀵 버튼 E */
