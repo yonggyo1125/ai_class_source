@@ -118,3 +118,26 @@ nav a {
 }
 
 /* 사이트 주 메뉴 E */
+
+/* 메인 배너 S */
+.main-banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.main-banner .swiper-slide img {
+    width: 100%;
+}
+
+.main-banner .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.main-banner .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+/* 메인 배너 E */
