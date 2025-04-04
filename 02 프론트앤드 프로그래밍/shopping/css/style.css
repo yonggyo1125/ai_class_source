@@ -43,6 +43,14 @@ img {
     outline: none;
     font-family: "Noto Sans KR", sans-serif;
 }
+
+h2 {
+    font-size: 1.539rem;
+    color: #212121;
+    line-height: 1;
+    margin: 20px 0;
+    text-align: center;
+}
 /* 공통 스타일 E */
 
 /* 헤더 영역 S */
