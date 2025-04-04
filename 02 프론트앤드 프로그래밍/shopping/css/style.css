@@ -63,4 +63,8 @@ header .logo {
     flex-grow: 1;
     text-align: center;
 }
+
+header .logo img {
+    height: 34px;
+}
 /* 헤더 영역 E */
