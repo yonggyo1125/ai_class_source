@@ -7,13 +7,22 @@
         <script>
             window.addEventListener("DOMContentLoaded", function() {
                 const el = document.getElementById("button");
+                el.addEventListener("click", function() {
+                    alert("확인1");
+                });
+
+                el.addEventListener("click", function() {
+                    alert("확인2");
+                });
+
+                /*
                 el.onclick = function() {
                     alert("확인1");  
                 };
 
                 el.onclick = function() {
                     alert("확인2");
-                };
+                }; */
             });
         </script>
         <button type="button" id="button">클릭</button>
