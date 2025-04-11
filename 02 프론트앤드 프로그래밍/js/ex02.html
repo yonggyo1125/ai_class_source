@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            console.log("자식창", window);
+            console.log("부모창", parent);
+            console.log("parent === window", parent === window);
+            
+            window.addEventListener("DOMContentLoaded", function() {
+                const buttonEl = document.getElementById("button");
+                buttonEl.addEventListener("click", function() {
+                    parent.document.body.style.background = "orange";
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>자식 창</h1>
+        <button type="button" id="button">창 닫기(parent)</button>
+    </body>
+</html>

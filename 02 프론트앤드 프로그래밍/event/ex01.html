@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            window.addEventListener("DOMContentLoaded", function() {
+                const el = document.getElementById("button");
+                el.onclick = function() {
+                    alert("확인1");  
+                };
+
+                el.onclick = function() {
+                    alert("확인2");
+                };
+            });
+        </script>
+        <button type="button" id="button">클릭</button>
+    </body>
+</html>

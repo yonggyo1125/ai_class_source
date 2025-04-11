@@ -1,0 +1,9 @@
+svg {
+    position: relative;
+    top: -2px;
+}
+
+#todo-content {
+    height: 300px;
+    border-radius: 5px;
+}

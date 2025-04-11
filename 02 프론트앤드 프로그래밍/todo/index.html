@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+        <script src="js/todo.js"></script>
+        <title>나의 할일 관리</title>
+    </head>
+    <body>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <div class="d-flex justify-content-start align-items-center">
+                    <span class="navbar-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-calendar-event me-2" viewBox="0 0 16 16">
+                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                        </svg>
+                        스케줄 관리
+                    </span>
+                    <a class="nav-link ms-5" href="#schedule-regist">스케줄 등록</a>
+                    <a class="nav-link ms-3" href="#schedule-items">스케줄 목록</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <h2 class="mt-3">스케줄 등록하기</h2>
+            <form id="schedule-regist" name="frmRegist" autocomplete="off" class="mb-5">
+                <div class="mb-3">
+                    <label for="todo-date" class="form-label">날짜</label>
+                    <input type="date" id="todo-date" name="date" class="form-control" placeholder="날짜를 선택하세요.">
+                </div>
+                <div class="mb-3">
+                    <label for="todo-title" class="form-label">제목</label>
+                    <input type="text" id="todo-title" name="title" class="form-control" placeholder="제목을 입력하세요.">
+                </div>
+                <div class="mb-3">
+                    <label for="todo-content" class="form-label">내용</label>
+                    <div id="todo-content" class="border"></div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-lg btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                        </svg>
+                        등록하기
+                    </button>
+                </div>
+            </form>
+
+            <h2>스케줄 목록</h2>
+            <div class="accordion" id="schedule-items"></div>
+        </div>
+        <script type="text/html" id="tpl">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#schedule-item#{seq}" aria-expanded="true" aria-controls="schedule-item#{seq}">
+                    <span class="badge text-bg-info">#{date}</span>
+                    #{title}
+                </button>
+                </h2>
+                <div id="schedule-item#{seq}" class="accordion-collapse collapse" data-bs-parent="#schedule-items">
+                    <div class="accordion-body">
+                        #{content}
+                        <button type="button" class="btn btn-danger btn-sm remove">삭제</button>
+                    </div>
+                </div>
+            </div>
+            <!-- acordion-item -->
+        </script>
+    </body>
+</html>
