@@ -26,10 +26,10 @@ public class Student {
 
     }
 
-    public Student(int _id, String _name, String _major) {
-        id = _id;
-        name = _name;
-        major = _major;
+    public Student(int id, String name, String major) {
+        this.id = id;
+        this.name = name;
+        this.major = major;
     }
 
     void study() {
