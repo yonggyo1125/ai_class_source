@@ -1,6 +1,6 @@
 package exam02;
 
-public class Human extends Animal {
+public final class Human extends Animal {
 
     @Override
     public void move() {
@@ -9,7 +9,7 @@ public class Human extends Animal {
         System.out.println("두발로 직립보행!");
     }
 
-    public void reading() {
+    public final void reading() {
         System.out.println("독서를 한다.");
     }
 }
