@@ -7,4 +7,8 @@ public class A {
         super();
         System.out.println("A() 생성자");
     }
+
+    void method() {
+        System.out.println("A클래스에 정의된 method()");
+    }
 }
