@@ -1,5 +1,6 @@
 package exam01;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -10,6 +11,5 @@ public class Ex08 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
