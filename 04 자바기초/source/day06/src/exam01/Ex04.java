@@ -1,6 +1,6 @@
 package exam01;
 
-public class Ex03 {
+public class Ex04 {
     public static void main(String[] args) {
         int num1 = 10;
         int num2 = 2;
@@ -12,13 +12,11 @@ public class Ex03 {
             String str = null;
             str = str.toUpperCase(); // 소문자 -> 대문자, NullPointerException 발생
             System.out.println(str);
-        } catch (ArithmeticException e) {
+            // NullPointerException e = new NullPointerException()...
+        } catch (ArithmeticException | NullPointerException e) {
             String message = e.getMessage();
             System.out.println(message);
 
-        } catch (NullPointerException e) {
-            String message = e.getMessage();
-            System.out.println(message);
         }
     }
 }

@@ -1,6 +1,8 @@
 package exam01;
 
-public class Ex03 {
+import java.io.FileNotFoundException;
+
+public class Ex06 {
     public static void main(String[] args) {
         int num1 = 10;
         int num2 = 2;
@@ -10,15 +12,16 @@ public class Ex03 {
             System.out.println(result);
 
             String str = null;
-            str = str.toUpperCase(); // 소문자 -> 대문자, NullPointerException 발생
+            str = str.toUpperCase(); // 소문자 -> 대문자, 모르는 예외 ...
             System.out.println(str);
+
         } catch (ArithmeticException e) {
             String message = e.getMessage();
             System.out.println(message);
-
-        } catch (NullPointerException e) {
-            String message = e.getMessage();
-            System.out.println(message);
+        } catch (Exception e) {
+            System.out.println("모르는 예외를 처리한다...");
         }
+
+        FileNotFoundException e;
     }
 }
