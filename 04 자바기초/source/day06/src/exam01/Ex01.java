@@ -1,9 +1,15 @@
 package exam01;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class Ex01 {
     public static void main(String[] args) {
-        FileInputStream fis = new FileInputStream("a.txt");
+        try {
+            FileInputStream fis = new FileInputStream("b.txt");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
