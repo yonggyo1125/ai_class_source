@@ -15,5 +15,8 @@ public class Ex01 {
         grapeItems.add(new Grape());
 
         Juicer.make(grapeItems);
+
+        //Juicer.<Apple>make3(appleItems);
+        Juicer.make3(appleItems);
     }
 }

@@ -14,6 +14,20 @@ public class Juicer {
             fruit.printInfo();
         }
     }
+
+    public static void make2(FruitBox<? super Apple> items) { // Apple, Fruit, Object
+        List<Fruit> fruits = (List<Fruit>) items.getItems();
+        for (Fruit fruit : fruits) {
+            fruit.printInfo();
+        }
+    }
+
+    public static <T extends Fruit> void make3(FruitBox<T> items) {
+        List<Fruit> fruits = (List<Fruit>) items.getItems();
+        for (Fruit fruit : fruits) {
+            fruit.printInfo();
+        }
+    }
     /*
     public static void make(FruitBox<Apple> items) {
         List<Apple> fruits = items.getItems();
