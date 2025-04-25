@@ -15,6 +15,10 @@ public class LoginService {
             if (!userPw.equals("12345")) {
                 throw new UserPwException("비밀번호가 일치하지 않습니다.");
             }
+
+            // 아이디와 비번이 일치 하므로 로그인 처리
+            System.out.println("로그인 처리 완료...");
+
         } catch (UserIdException | UserPwException e) {
             System.out.println(e.getMessage());
         }
