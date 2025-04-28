@@ -17,6 +17,7 @@ public class Ex05 {
         String str1 = sb.toString();
         System.out.println(str1);
         System.out.printf("str1 주소:%d%n", System.identityHashCode(str1));
+        System.out.println(str1 == "ABCDEFGHI");
 
     }
 }
