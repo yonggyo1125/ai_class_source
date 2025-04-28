@@ -1,6 +1,6 @@
 package exam03;
 
-public class Ex05 {
+public class Ex05 extends Object {
     public static void main(String[] args) {
         int num1 = 100;
         int num2 = 200;
