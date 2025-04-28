@@ -1,5 +1,7 @@
 package exam01;
 
+import java.util.Objects;
+
 public class Book {
     private int isbn; // 도서 번호
     private String title; // 도서명
@@ -20,6 +22,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
+                ", hashCode()='" + hashCode() + '\'' +
                 '}';
     }
 
@@ -36,5 +39,10 @@ public class Book {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn, title, author, publisher);
     }
 }
