@@ -30,6 +30,11 @@ public class Book {
      */
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj instanceof Book book
+                && isbn == book.isbn && title.equals(book.title)
+                && author.equals(book.author) && publisher.equals(book.publisher)) {
+            return true;
+        }
+        return false;
     }
 }
