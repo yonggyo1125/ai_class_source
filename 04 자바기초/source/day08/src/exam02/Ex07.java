@@ -19,5 +19,12 @@ public class Ex07 {
             int index = iter.nextIndex();
             System.out.printf("item:%s, index:%d%n", item, index);
         }
+
+        System.out.println("---- 역방향 조회 ------");
+        while(iter.hasPrevious()) {
+            String item = iter.previous();
+            int index = iter.previousIndex();
+            System.out.printf("item:%s, index:%d%n", item, index);
+        }
     }
 }
