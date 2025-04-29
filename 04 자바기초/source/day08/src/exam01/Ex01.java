@@ -1,14 +1,14 @@
 package exam01;
 
-@MyAnno(min=10, max=100)
+@MyAnno(value="안녕1", min=20, max={200, 300, 400})
 public class Ex01 {
 
-    @MyAnno(min=1, max=10)
+    @MyAnno(value="안녕2")
     public Ex01() {
 
     }
 
-    @MyAnno(min=5, max=20)
+    @MyAnno("안녕3")
     void method() {
 
     }
