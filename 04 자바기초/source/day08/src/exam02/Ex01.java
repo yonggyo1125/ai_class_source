@@ -1,6 +1,7 @@
 package exam02;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class Ex01 {
     public static void main(String[] args) {
@@ -11,11 +12,15 @@ public class Ex01 {
         items.add("이름4");
         items.add("이름5");
 
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = items.size() - 1; i >= 0; i--) {
             items.remove(i);
-           //String name = items.get(i);
-           // System.out.println(name);
         }
+
+//        for (int i = 0; i < items.size(); i++) {
+//            items.remove(i);
+//           //String name = items.get(i);
+//           // System.out.println(name);
+//        }
 
         System.out.println(items); // items.toString();
         /*
