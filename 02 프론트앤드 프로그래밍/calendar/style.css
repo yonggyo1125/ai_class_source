@@ -1,0 +1,20 @@
+#calendar-dates {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#calendar-dates > li {
+    width: calc(100% / 7);
+}
+
+#calendar-dates input[type='radio'] {
+    display: none;
+}
+
+#calendar-dates input[type='radio'] + label {
+    cursor: pointer;
+}
+
+#calendar-dates input[type='radio']:checked + label {
+    color: blue;
+}

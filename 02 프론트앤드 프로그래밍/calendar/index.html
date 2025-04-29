@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="calendar.js"></script>
+    </head>
+    <body>
+        <div class="calendar-nav">
+            <button type="button" class="nav-btn prev">이전</button>
+            <span class="year"></span>. 
+            <span class="month"></span>
+            <button type="button" class="nav-btn next">다음</button>
+        </div>
+        <ul class="yoil">
+            <li>일</li>
+            <li>월</li>
+            <li>화</li>
+            <li>수</li>
+            <li>목</li>
+            <li>금</li>
+            <li>토</li>
+        </ul>
+        <ul class="dates" id="calendar-dates">
+            
+        </ul>
+        <script type="text/html" id="tpl-calendar">
+            <li>
+                <input type="radio" name="date" value="#{value}" id="date-#{value}">
+                <label for="date-#{value}">
+                    <div class="date">#{date}</div>
+                </label>
+            </li>
+        </script>
+    </body>
+</html>
