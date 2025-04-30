@@ -12,7 +12,8 @@ public class Ex05 {
             }
         };
 
-        TreeSet<String> items = new TreeSet<>(comp);
+        //TreeSet<String> items = new TreeSet<>(comp);
+        TreeSet<String> items = new TreeSet<>(Comparator.reverseOrder());
         items.add("이름3");
         items.add("이름3");
         items.add("이름3");
