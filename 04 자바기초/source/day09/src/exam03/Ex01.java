@@ -9,9 +9,8 @@ public class Ex01 {
 //            }
 //        };
 
-        Calculator cal = (int num1, int num2) -> {
-                return num1 + num2;
-            };
+        //Calculator cal = (num1, num2) -> num1 + num2;
+          Calculator cal = (a, b) -> a + b;
 
         int result = cal.add(10, 20);
         System.out.println(result);
