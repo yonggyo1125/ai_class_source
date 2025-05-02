@@ -2,12 +2,9 @@ package exam02;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toMap;
-
-public class Ex03 {
+public class Ex04 {
     public static void main(String[] args) {
         List<Book> items = List.of(
                 new Book(1000, "책1", "저자1"),
@@ -17,9 +14,10 @@ public class Ex03 {
                 new Book(1004, "책5", "저자3`")
         );
 
-        //Map<Integer, Book> items2 = items.stream().collect(toMap(Book::getIsbn, b -> b));
-        Map<Integer, Book> items2 = items.stream().collect(toMap(Book::getIsbn, Function.identity()));
+        Map<Boolean, List<Book>> items2 = items.stream()
+                .collect(Collectors.partitioningBy(b -> b.getIsbn() <= 1002));
 
-        items2.forEach((k, v) -> System.out.printf("key=%s, value=%s%n", k, v));
+        List<Book> items3 = items2.get(true); // 1002 이하 도서만 조회
+        items3.forEach(System.out::println);
     }
 }
