@@ -12,4 +12,13 @@
         <servlet-name>member-join</servlet-name>
         <url-pattern>/member/join</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>board</servlet-name>
+        <servlet-class>org.koreait.controllers.BoardController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>board</servlet-name>
+        <url-pattern>/board</url-pattern>
+    </servlet-mapping>
 </web-app>
