@@ -1,6 +1,16 @@
 package org.koreait.controllers;
 
 import com.sun.net.httpserver.HttpServer;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-public class MemberController {
+import java.io.IOException;
+
+public class MemberController extends HttpServlet {
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("회원 가입 페이지....");
+    }
 }
