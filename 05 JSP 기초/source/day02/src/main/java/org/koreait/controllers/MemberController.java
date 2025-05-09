@@ -12,5 +12,6 @@ public class MemberController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("회원 가입 페이지....");
+        System.out.printf("req:%s, resp:%s%n", req, resp);
     }
 }
