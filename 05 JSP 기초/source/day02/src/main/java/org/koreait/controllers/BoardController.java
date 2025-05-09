@@ -23,9 +23,7 @@ public class BoardController extends HttpServlet {
         String key2 = config.getInitParameter("key2");
         System.out.printf("key1=%s, key2=%s%n", key1, key2);
 
-        String common1 = getInitParameter("common1");
-        String common2 = getInitParameter("common2");
-        System.out.printf("common1=%s, common2=%s%n", common1, common2);
+
     }
 
     @Override
@@ -48,6 +46,10 @@ public class BoardController extends HttpServlet {
         out.print("내용: <textarea name='content'></textarea><br>");
         out.print("<button type='submit'>작성하기</button>");
         out.print("</form>");
+
+        String common1 = req.getServletContext().getInitParameter("common1");
+        String common2 = req.getServletContext().getInitParameter("common2");
+        System.out.printf("common1=%s, common2=%s%n", common1, common2);
     }
 
     @Override
