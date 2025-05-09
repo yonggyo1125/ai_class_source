@@ -1,3 +1,4 @@
 dbeaver/
 gradle-*/
 apache-tomcat-*/
+node_modules/
