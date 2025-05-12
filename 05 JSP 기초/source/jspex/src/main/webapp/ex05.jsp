@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" errorPage="errorPage.jsp" %>
 <%
     int num1 = 100;
     int num2 = 0;
