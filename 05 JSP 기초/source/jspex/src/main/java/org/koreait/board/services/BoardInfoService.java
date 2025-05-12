@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class BoardInfoService {
 
-    List<Board> getList() {
+    public List<Board> getList() {
         List<Board> items = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> Board.builder()
                         .seq(i)
