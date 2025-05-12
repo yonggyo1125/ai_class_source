@@ -44,6 +44,10 @@
     <filter>
         <filter-name>board-filter1</filter-name>
         <filter-class>org.koreait.filters.BoardFilter1</filter-class>
+        <init-param>
+            <param-name>fkey1</param-name>
+            <param-value>fvalue1</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>board-filter1</filter-name>
