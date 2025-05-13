@@ -38,6 +38,6 @@ public class AppCtx2 {
 
     @Bean
     public LoginService loginService() {
-        return new LoginService(loginValidator(), memberDao());
+        return new LoginService();
     }
 }
