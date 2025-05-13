@@ -6,38 +6,15 @@ import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.LoginValidator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import(DBConfig.class)
+//@Import(DBConfig.class)
+//@ComponentScan({"org.koreait.member", "org.koreait.configs"})
+@ComponentScan("org.koreait")
 public class AppCtx2 {
 
-    @Bean
-    public MemberDao memberDao() {
-        return new MemberDao();
-    }
 
-    @Bean
-    public JoinValidator joinValidator() {
-        return new JoinValidator();
-    }
-
-    @Bean
-    public LoginValidator loginValidator() {
-        return new LoginValidator();
-    }
-
-    @Bean
-    public JoinService joinService() {
-        JoinService service = new JoinService();
-
-
-        return service;
-    }
-
-    @Bean
-    public LoginService loginService() {
-        return new LoginService();
-    }
 }

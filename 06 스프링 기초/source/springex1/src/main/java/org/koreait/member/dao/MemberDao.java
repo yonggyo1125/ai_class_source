@@ -1,6 +1,7 @@
 package org.koreait.member.dao;
 
 import org.koreait.member.entities.Member;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -8,7 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MemberDao {
+@Repository
+public class MemberDao { ///  빈의 이름 memberDao
     private Map<String, Member> members = new HashMap<>();
 
     public void register(Member member) {
