@@ -7,8 +7,10 @@ import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.LoginValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
+@Import(DBConfig.class)
 public class AppCtx2 {
 
     @Bean
@@ -29,8 +31,7 @@ public class AppCtx2 {
     @Bean
     public JoinService joinService() {
         JoinService service = new JoinService();
-        service.setMemberDao(memberDao());
-        service.setValidator(joinValidator());
+
 
         return service;
     }

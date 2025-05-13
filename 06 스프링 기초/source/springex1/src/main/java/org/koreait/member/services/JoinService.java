@@ -4,15 +4,18 @@ import org.koreait.member.RequestJoin;
 import org.koreait.member.dao.MemberDao;
 import org.koreait.member.entities.Member;
 import org.koreait.member.validators.JoinValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class JoinService {
     private JoinValidator validator;
     private MemberDao memberDao;
 
+    @Autowired
     public void setValidator(JoinValidator validator) {
         this.validator = validator;
     }
 
+    @Autowired
     public void setMemberDao(MemberDao memberDao) {
         this.memberDao = memberDao;
     }

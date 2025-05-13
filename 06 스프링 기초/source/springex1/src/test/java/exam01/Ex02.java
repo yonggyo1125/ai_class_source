@@ -2,10 +2,12 @@ package exam01;
 
 import org.junit.jupiter.api.Test;
 import org.koreait.configs.AppCtx2;
+import org.koreait.configs.DBConfig;
 import org.koreait.member.RequestJoin;
 import org.koreait.member.dao.MemberDao;
 import org.koreait.member.entities.Member;
 import org.koreait.member.services.JoinService;
+import org.koreait.person.Greeter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
@@ -29,6 +31,20 @@ public class Ex02 {
 
         List< Member> members = memberDao.getList();
         members.forEach(System.out::println);
+
+        ctx.close();
+    }
+
+    @Test
+    void test2() {
+        //AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx2.class, DBConfig.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx2.class);
+
+        JoinService service = ctx.getBean(JoinService.class);
+        Greeter g1 = ctx.getBean(Greeter.class);
+
+        System.out.println("service:" + service);
+        System.out.println("g1:" + g1);
 
         ctx.close();
     }
