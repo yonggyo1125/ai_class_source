@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    String text1 = (String)pageContext.getAttribute("text1");
-    String text2 = (String)request.getAttribute("text2");
+    //pageContext.setAttribute("text", "pageContext에서 설정");
+    //request.setAttribute("text", "request에서 설정");
+    application.setAttribute("text", "application에서 설정");
 %>
-<h1>ex02.jsp</h1>
-pageContext : <%=text1%><br>
-request : <%=text2%><br>
+text : ${text}<br>
