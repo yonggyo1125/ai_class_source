@@ -10,11 +10,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import java.time.format.DateTimeFormatter;
+
 @Configuration
 //@Import(DBConfig.class)
 //@ComponentScan({"org.koreait.member", "org.koreait.configs"})
 @ComponentScan("org.koreait")
 public class AppCtx2 {
 
-
+    @Bean
+    public DateTimeFormatter dateTimeFormatter() {
+        return DateTimeFormatter.ofPattern("yy.MM.dd HH:mm");
+    }
 }
