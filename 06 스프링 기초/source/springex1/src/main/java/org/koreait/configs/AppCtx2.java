@@ -23,8 +23,9 @@ import java.time.format.DateTimeFormatter;
 //    excludeFilters = @ComponentScan.Filter(type=FilterType.ASPECTJ, pattern = "org.koreait.member.dao.*Dao"))
 //@ComponentScan(basePackages = "org.koreait",
 //        excludeFilters = @ComponentScan.Filter(type=FilterType.ASPECTJ, pattern = "org.koreait..*Dao"))
-@ComponentScan(basePackages = "org.koreait",
-    excludeFilters = @ComponentScan.Filter(type=FilterType.REGEX, pattern = "org.koreait.member\\..*Dao"))
+//@ComponentScan(basePackages = "org.koreait",
+//    excludeFilters = @ComponentScan.Filter(type=FilterType.REGEX, pattern = "org.koreait.member\\..*Dao"))
+@ComponentScan("org.koreait")
 public class AppCtx2 {
 
     //@Bean
