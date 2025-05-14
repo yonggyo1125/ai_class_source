@@ -9,6 +9,13 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DBConfig {
+    /*
+    @Bean
+    public MemberDao memberDao() {
+        System.out.println("수동 등록빈!");
+        return new MemberDao();
+    }
+    */
     @Bean
     public Greeter dataSource() {
         return new Greeter();

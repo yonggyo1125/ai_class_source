@@ -6,17 +6,19 @@ import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.LoginValidator;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 
 import java.time.format.DateTimeFormatter;
 
 @Configuration
 //@Import(DBConfig.class)
 //@ComponentScan({"org.koreait.member", "org.koreait.configs"})
-@ComponentScan("org.koreait")
+//@ComponentScan("org.koreait")
+
+//@ComponentScan(basePackages = "org.koreait",
+//        excludeFilters = @ComponentScan.Filter(type=FilterType.ANNOTATION, classes = ManualBean.class))
+@ComponentScan(basePackages = "org.koreait",
+    excludeFilters = @ComponentScan.Filter(type=FilterType.ASSIGNABLE_TYPE, classes=MemberDao.class))
 public class AppCtx2 {
 
     //@Bean
