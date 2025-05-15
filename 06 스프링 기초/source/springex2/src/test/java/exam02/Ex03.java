@@ -11,7 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 @SpringJUnitConfig(AppCtx2.class)
 public class Ex03 {
     @Autowired
-    private RecCalculator calculator;
+    private Calculator calculator;
 
     @BeforeEach
     void init() {

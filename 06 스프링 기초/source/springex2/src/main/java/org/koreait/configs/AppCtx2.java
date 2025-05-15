@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@EnableAspectJAutoProxy(proxyTargetClass = true)  // 서브클래스 기반의 프록시로 변환
+//@EnableAspectJAutoProxy(proxyTargetClass = true)  // 서브클래스 기반의 프록시로 변환
+@EnableAspectJAutoProxy
 public class AppCtx2 {
 
     @Bean
@@ -17,7 +18,7 @@ public class AppCtx2 {
     }
 
     @Bean
-    public RecCalculator recCalculator() {
+    public Calculator recCalculator() {
         return new RecCalculator();
     }
 }
