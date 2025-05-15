@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringJUnitConfig(AppCtx.class)
 public class Ex03 {
@@ -41,4 +42,13 @@ public class Ex03 {
 
         repository.save(member);
     }
+    
+    @Test
+    @DisplayName("회원 목록 조회")
+    void test3() {
+        List<Member> items = repository.findAll();
+        items.forEach(System.out::println);
+    }
+
+
 }
