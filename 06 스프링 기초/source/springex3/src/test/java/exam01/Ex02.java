@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Transactional
 @SpringJUnitConfig(AppCtx.class)
 public class Ex02 {
 
@@ -29,7 +31,7 @@ public class Ex02 {
     void test1() {
         String sql = "INSERT INTO MEMBER (email, password, name, mobile) " +
                     "VALUES (?, ?, ?, ?)";
-        int affectedRows = jdbcTemplate.update(sql, "user04@test.org", "1234", "사용자04", "01010001000");
+        int affectedRows = jdbcTemplate.update(sql, "user98@test.org", "1234", "사용자98", "01010001000");
         System.out.println(affectedRows);
     }
 
