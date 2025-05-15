@@ -75,4 +75,13 @@ public class Ex03 {
         List<Member> items = repository.findByRegDtBetweenAndNameContainingOrderByRegDtDesc(sdate, edate, "사용자");
         items.forEach(System.out::println);
     }
+
+    @Test
+    void test7() {
+        LocalDateTime sdate = LocalDate.now().atStartOfDay();
+        LocalDateTime edate = LocalDateTime.of(LocalDate.now(), LocalTime.of(23, 59, 59));
+
+        List<Member> items = repository.getMembers(sdate, edate, "%사용자%");
+        items.forEach(System.out::println);
+    }
 }
