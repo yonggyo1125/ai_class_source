@@ -6,9 +6,14 @@ import org.koreait.global.configs.AppCtx;
 import org.koreait.member.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -64,7 +69,17 @@ public class Ex02 {
     @DisplayName("회원이 추가되면 회원번호(증감번호)를 가져오는 방법")
     void test6() {
         String sql = "INSERT INTO MEMBER (email, password, name, mobile) VALUES (?, ?, ?, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        int affectedRows = jdbcTemplate.update(c -> {
+            PreparedStatement pstmt = c.prepareStatement(sql, new String[] {"seq"});
+            pstmt.setString(1, "user99@test.org");
+            pstmt.setString(2, "1234");
+            pstmt.setString(3, "사용자99");
+            pstmt.setString(4, "01010001000");
 
+            return pstmt;
+
+        }, keyHolder);
     }
     
     private Member mapper(ResultSet rs, int i) throws SQLException {
