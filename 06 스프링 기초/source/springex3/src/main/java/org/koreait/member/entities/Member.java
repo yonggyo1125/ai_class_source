@@ -1,16 +1,25 @@
 package org.koreait.member.entities;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
 @Data
+@Table("MEMBER")
 public class Member {
-    private long seq;
+    @Id
+    private Long seq;
     private String email;
     private String password;
     private String name;
     private String mobile;
-    private LocalDateTime regDt;
+
+    @Column("regDt")
+    private LocalDateTime regDt; // reg_dt
+
+    @Column("modDt")
     private LocalDateTime modDt;
 }
