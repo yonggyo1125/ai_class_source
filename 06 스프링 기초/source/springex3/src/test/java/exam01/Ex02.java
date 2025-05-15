@@ -80,6 +80,10 @@ public class Ex02 {
             return pstmt;
 
         }, keyHolder);
+
+        Number key = keyHolder.getKey();
+        long seq = key.longValue();
+        System.out.printf("회원번호(seq): %d%n", seq);
     }
     
     private Member mapper(ResultSet rs, int i) throws SQLException {
