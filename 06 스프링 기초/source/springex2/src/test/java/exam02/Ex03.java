@@ -23,5 +23,14 @@ public class Ex03 {
         long result = calculator.factorial(10L);
         System.out.printf("result:%d%n", result);
 
+        result = calculator.factorial(10L);
+        System.out.printf("result:%d%n", result);
+
+        result = calculator.factorial(10L);
+        System.out.printf("result:%d%n", result);
+
+        result = calculator.factorial(10L);
+        System.out.printf("result:%d%n", result);
+
     }
 }
