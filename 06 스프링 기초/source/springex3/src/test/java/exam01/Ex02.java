@@ -32,17 +32,7 @@ public class Ex02 {
     @DisplayName("회원 목록 조회")
     void test2() {
         String sql = "SELECT * FROM MEMBER WHERE email LIKE ?";
-        List<Member> items = jdbcTemplate.query(sql, (rs, i) -> {
-                Member member = new Member();
-                member.setSeq(rs.getLong("seq"));
-                member.setEmail(rs.getString("email"));
-                member.setPassword(rs.getString("password"));
-                member.setName(rs.getString("name"));
-                member.setMobile(rs.getString("mobile"));
-                member.setRegDt(rs.getTimestamp("regDt").toLocalDateTime());
-
-                return member;
-        }, "%user%");
+        List<Member> items = jdbcTemplate.query(sql, this::mapper, "%user%");
 
         items.forEach(System.out::println);
     }
@@ -51,18 +41,16 @@ public class Ex02 {
     @DisplayName("회원 1명 조회")
     void test3() {
         String sql = "SELECT * FROM MEMBER WHERE email = ?";
-        Member item = jdbcTemplate.queryForObject(sql, (rs, i) -> {
-            Member member = new Member();
-            member.setSeq(rs.getLong("seq"));
-            member.setEmail(rs.getString("email"));
-            member.setPassword(rs.getString("password"));
-            member.setName(rs.getString("name"));
-            member.setMobile(rs.getString("mobile"));
-            member.setRegDt(rs.getTimestamp("regDt").toLocalDateTime());
-
-            return member;
-        }, "user01@test.org");
+        Member item = jdbcTemplate.queryForObject(sql, this::mapper, "user01@test.org");
         System.out.println(item);
+    }
+
+    @Test
+    @DisplayName("회원1명의 이름 조회")
+    void test4() {
+        String sql = "SELECT name FROM MEMBER WHERE email = ?";
+        String name = jdbcTemplate.queryForObject(sql, String.class, "user01@test.org");
+        System.out.println(name);
     }
 
     private Member mapper(ResultSet rs, int i) throws SQLException {
