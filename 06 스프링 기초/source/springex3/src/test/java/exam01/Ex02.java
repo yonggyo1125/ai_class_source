@@ -16,7 +16,7 @@ public class Ex02 {
     void test1() {
         String sql = "INSERT INTO MEMBER (email, password, name, mobile) " +
                     "VALUES (?, ?, ?, ?)";
-        int affectedRows = jdbcTemplate.update(sql, "user03@test.org", "1234", "사용자03", "01010001000");
+        int affectedRows = jdbcTemplate.update(sql, "user04@test.org", "1234", "사용자04", "01010001000");
         System.out.println(affectedRows);
     }
 }
