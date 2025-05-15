@@ -50,5 +50,9 @@ public class Ex03 {
         items.forEach(System.out::println);
     }
 
-
+    @Test
+    void test4() {
+        Member member = repository.findByEmail("user01@test.org").orElse(null);
+        System.out.println(member);
+    }
 }
