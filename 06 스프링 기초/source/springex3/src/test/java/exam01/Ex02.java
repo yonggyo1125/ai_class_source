@@ -53,6 +53,20 @@ public class Ex02 {
         System.out.println(name);
     }
 
+    @Test
+    @DisplayName("총 회원 수")
+    void test5() {
+        long total = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM MEMBER", long.class);
+        System.out.println(total);
+    }
+    
+    @Test
+    @DisplayName("회원이 추가되면 회원번호(증감번호)를 가져오는 방법")
+    void test6() {
+        String sql = "INSERT INTO MEMBER (email, password, name, mobile) VALUES (?, ?, ?, ?)";
+
+    }
+    
     private Member mapper(ResultSet rs, int i) throws SQLException {
         Member member = new Member();
         member.setSeq(rs.getLong("seq"));
