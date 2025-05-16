@@ -22,4 +22,18 @@
             <input type="password" name="confirmPassword">
         </dd>
     </dl>
+    <dl>
+        <dt>회원명</dt>
+        <dd>
+            <input type="text" name="name">
+        </dd>
+    </dl>
+    <dl>
+        <dt>약관동의</dt>
+        <dd>
+            <input type="checkbox" name="agree" value="true" id="agree">
+            <label for="agree">약관에 동의합니다.</label>
+        </dd>
+    </dl>
+    <button type='submit'>가입하기</button>
 </form>
