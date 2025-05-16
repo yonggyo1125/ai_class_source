@@ -24,4 +24,9 @@ public interface MemberRepository extends ListCrudRepository<Member, Long> {
     List<Member> getMembers(@Param("sDate") LocalDateTime sdate,
                             @Param("eDate") LocalDateTime eDate,
                             @Param("key") String keyword);
+
+    @Query("SELECT * FROM MEMBER WHERE regDt BETWEEN :sDate AND :eDate AND name LIKE :key ORDER BY regDt DESC")
+    Page<Member> getMembers2(@Param("sDate") LocalDateTime sdate,
+                            @Param("eDate") LocalDateTime eDate,
+                            @Param("key") String keyword, Pageable pageable);
 }

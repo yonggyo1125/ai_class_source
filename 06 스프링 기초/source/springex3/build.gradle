@@ -19,6 +19,8 @@ dependencies {
     implementation 'org.springframework.data:spring-data-jdbc:3.4.5'
     implementation 'org.apache.tomcat:tomcat-jdbc:10.1.40'
     implementation 'ch.qos.logback:logback-classic:1.5.18'
+    implementation 'org.mybatis:mybatis:3.5.19'
+    implementation 'org.mybatis:mybatis-spring:3.0.4'
     runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'
     compileOnly 'org.projectlombok:lombok:1.18.38'
 
