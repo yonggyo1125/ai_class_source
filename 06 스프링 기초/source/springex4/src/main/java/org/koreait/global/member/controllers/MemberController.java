@@ -17,10 +17,24 @@ public class MemberController {
     }
 
     @PostMapping("/member/join")
-    public String joinPs() {
+    public String joinPs(RequestJoin form) {
+        System.out.println(form);
+        return "member/join_ps";
+    }
+
+    /*
+    @PostMapping("/member/join")
+    public String joinPs(
+            @RequestParam(name="email", defaultValue = "기본 이메일...") String email,
+            @RequestParam("password") String password,
+            @RequestParam("confirmPassword") String confirmPassword,
+            @RequestParam(name="agree", required = false) Boolean agree) {
+        System.out.println("POST 요청 유입...");
+        System.out.printf("email=%s, agree=%s%n", email, agree);
 
         return "member/join_ps";
     }
+    */
 
     /*
     @GetMapping("/member/register")
