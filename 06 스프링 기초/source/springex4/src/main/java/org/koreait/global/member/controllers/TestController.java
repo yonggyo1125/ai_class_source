@@ -1,7 +1,9 @@
 package org.koreait.global.member.controllers;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,6 +45,20 @@ public class TestController {
     @GetMapping(path="/member/test5", headers = "test7")
     public String test7() {
         System.out.println("test7()");
+
+        return "member/test";
+    }
+
+    @PostMapping(path="/member/test6", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String test8() {
+        System.out.println("test8()");
+
+        return "member/test";
+    }
+
+    @PostMapping(path="/member/test6", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String test9() {
+        System.out.println("test9()");
 
         return "member/test";
     }
