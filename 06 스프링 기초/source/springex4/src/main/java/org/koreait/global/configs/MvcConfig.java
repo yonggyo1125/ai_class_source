@@ -22,6 +22,15 @@ public class MvcConfig implements WebMvcConfigurer {
 
     }
 
+    // 컨트롤러 생성 없이 주소와 템플릿을 연동하는 설정
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/company")
+                .setViewName("company/main");
+
+
+    }
+
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/templates/", ".jsp");

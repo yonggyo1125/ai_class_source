@@ -13,6 +13,16 @@ import javax.print.attribute.standard.RequestingUserName;
 @RequestMapping("/member")
 public class MemberController {
 
+    /**
+     * MemberController에서 공통으로 공유할수 있는  속성
+     *
+     * @return
+     */
+    @ModelAttribute("commonTitle")
+    public String commonTitle() {
+        return "회원 공통 제목...";
+    }
+
     @GetMapping("/join")
     public String join(@ModelAttribute RequestJoin form) {
         System.out.println(form);

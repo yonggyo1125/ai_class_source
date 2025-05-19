@@ -10,4 +10,6 @@ public class RequestJoin {
     private String name;
     private String mobile;
     private boolean agree;
+
+    private RequestAddress addr;
 }
