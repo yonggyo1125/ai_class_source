@@ -14,6 +14,8 @@ public class Test2Controller {
     @GetMapping("/ex01")
     public String exam01(Model model) {
         model.addAttribute("programmings", List.of("자바", "파이썬", "자바스크립트", "러스트"));
+        model.addAttribute("fruits", List.of("사과", "배", "오렌지", "바나나"));
+        model.addAttribute("genders", Gender.values());
 
         return "test/test";
     }
