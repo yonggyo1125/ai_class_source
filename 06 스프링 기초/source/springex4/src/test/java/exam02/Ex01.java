@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.koreait.global.configs.MvcConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
@@ -32,6 +33,15 @@ public class Ex01 {
         mockMvc.perform(get("/member/test5")
                         //.header("test6", "value6") // 요청 헤더
                         .header("test7", "value7")
+                )
+                .andDo(print());
+    }
+
+    @Test
+    void test2() throws Exception {
+        // 요청 헤더 Content-Type: application/x-www-form-urlencoded
+        mockMvc.perform(post("/member/test6")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 )
                 .andDo(print());
     }
