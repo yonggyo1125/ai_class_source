@@ -1,39 +1,43 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <c:url var="action" value="/member/join" />
-
-<h1>회원가입</h1>
-<form method="POST" action="${action}">
+<form:form action="${action}" modelAttribute="requestJoin">
     <dl>
         <dt>이메일</dt>
         <dd>
-            <input type="text" name="email" value="${requestJoin.email}">
+            <form:input path="email" />
         </dd>
     </dl>
     <dl>
         <dt>비밀번호</dt>
         <dd>
-            <input type="password" name="password" value="${requestJoin.password}">
+            <form:password path="password" />
         </dd>
     </dl>
     <dl>
         <dt>비밀번호 확인</dt>
         <dd>
-            <input type="password" name="confirmPassword" value="${requestJoin.confirmPassword}">
+            <form:password path="confirmPassword" />
         </dd>
     </dl>
     <dl>
         <dt>회원명</dt>
         <dd>
-            <input type="text" name="name" value="${requestJoin.name}">
+            <form:input path="name" />
+        </dd>
+    </dl>
+    <dl>
+        <dt>휴대전화번호</dt>
+        <dd>
+            <form:input path="mobile" />
         </dd>
     </dl>
     <dl>
         <dt>약관동의</dt>
         <dd>
-            <input type="checkbox" name="agree" value="true" id="agree"${requestJoin.agree ? ' checked': ''}>
-            <label for="agree">약관에 동의합니다.</label>
+            <form:checkbox path="agree" label="회원가입 약관에 동의합니다." />
         </dd>
     </dl>
-    <button type='submit'>가입하기</button>
-</form>
+    <button type="submit">가입하기</button>
+</form:form>
