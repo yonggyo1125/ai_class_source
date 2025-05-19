@@ -5,7 +5,9 @@
 
 <h1>${commonTitle}</h1>
 
-${requestJoin}
+hobby[0] : ${requestJoin.hobby[0]}<br>
+hobby[1] : ${requestJoin.hobby[1]}<br>
+requestJoin.add.address : ${requestJoin.addr.address}<br>
 
 <form:form action="${action}" modelAttribute="requestJoin">
     <dl>
