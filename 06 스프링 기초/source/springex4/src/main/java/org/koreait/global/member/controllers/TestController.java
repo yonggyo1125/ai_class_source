@@ -24,4 +24,26 @@ public class TestController {
         System.out.println("param3, param4");
         return "member/test";
     }
+
+    @GetMapping(path="/member/test4", produces = "application/json")
+    public String test5() {
+
+        return "member/test";
+    }
+
+    // 요청 헤더 중에서 test6이 포함된 경우
+    @GetMapping(path="/member/test5", headers = "test6")
+    public String test6() {
+        System.out.println("test6()");
+
+        return "member/test";
+    }
+
+    // 요청 헤더 중에서 test7이 포함된 경우
+    @GetMapping(path="/member/test5", headers = "test7")
+    public String test7() {
+        System.out.println("test7()");
+
+        return "member/test";
+    }
 }
