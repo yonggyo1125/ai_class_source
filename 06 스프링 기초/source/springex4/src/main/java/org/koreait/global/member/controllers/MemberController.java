@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.print.attribute.standard.RequestingUserName;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -21,6 +22,11 @@ public class MemberController {
     @ModelAttribute("commonTitle")
     public String commonTitle() {
         return "회원 공통 제목...";
+    }
+
+    @ModelAttribute("hobbies")
+    public List<String> hobbies() {
+        return List.of("취미1", "취미2", "취미3");
     }
 
     @GetMapping("/join")

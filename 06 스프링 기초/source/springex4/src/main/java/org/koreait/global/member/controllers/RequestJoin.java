@@ -2,6 +2,8 @@ package org.koreait.global.member.controllers;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class RequestJoin {
     private String email;
@@ -12,4 +14,6 @@ public class RequestJoin {
     private boolean agree;
 
     private RequestAddress addr;
+
+    private List<String> hobby;
 }

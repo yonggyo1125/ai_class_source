@@ -49,6 +49,12 @@ ${requestJoin}
         </dd>
     </dl>
     <dl>
+        <dt>취미</dt>
+        <dd>
+            <form:checkboxes items="${hobbies}" path="hobby" />
+        </dd>
+    </dl>
+    <dl>
         <dt>약관동의</dt>
         <dd>
             <form:checkbox path="agree" label="회원가입 약관에 동의합니다." />
