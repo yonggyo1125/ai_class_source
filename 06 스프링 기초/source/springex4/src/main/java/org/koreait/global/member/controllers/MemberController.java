@@ -12,6 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/member")
 public class MemberController {
 
+    @GetMapping // /member
+    public String index() {
+        return "member/test";
+    }
+
     @GetMapping("/join")  // /member/join
     public String joinPage() {
 
