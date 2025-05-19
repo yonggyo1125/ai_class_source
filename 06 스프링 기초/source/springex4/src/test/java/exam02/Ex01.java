@@ -39,9 +39,12 @@ public class Ex01 {
 
     @Test
     void test2() throws Exception {
-        // 요청 헤더 Content-Type: application/x-www-form-urlencoded
+
         mockMvc.perform(post("/member/test6")
-                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        // 요청 헤더 Content-Type: application/x-www-form-urlencoded
+                        //.contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        // 요청 헤더 Content-Type: application/json
+                        .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andDo(print());
     }
