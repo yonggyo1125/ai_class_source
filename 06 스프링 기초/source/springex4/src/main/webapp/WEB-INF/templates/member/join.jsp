@@ -5,6 +5,8 @@
 
 <h1>${commonTitle}</h1>
 
+${requestJoin}
+
 <form:form action="${action}" modelAttribute="requestJoin">
     <dl>
         <dt>이메일</dt>
@@ -34,6 +36,16 @@
         <dt>휴대전화번호</dt>
         <dd>
             <form:input path="mobile" />
+        </dd>
+    </dl>
+    <dl>
+        <dt>주소</dt>
+        <dd>
+            <div>
+                <form:input path="addr.zoneCode" />
+            </div>
+            <form:input path="addr.address" />
+            <form:input path="addr.addressSub" />
         </dd>
     </dl>
     <dl>
