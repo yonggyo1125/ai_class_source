@@ -4,19 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 
-    @GetMapping("/member/join")
+    @GetMapping("/join")  // /member/join
     public String joinPage() {
 
         return "member/join"; // 템플릿 경로
     }
 
-    @PostMapping("/member/join")
+    @PostMapping("/join") // /member/join
     public String joinPs(RequestJoin form) {
         System.out.println(form);
         return "member/join_ps";
