@@ -22,7 +22,7 @@ public class Member2Controller {
     }
 
     @PostMapping("/join") // /member/join
-    public String joinPs(RequestJoin form, Model model) { // requestJoin
+    public String joinPs(RequestJoin3 form, Model model) { // requestJoin
         //model.addAttribute("requestJoin", form);
 
         return "member/join";
