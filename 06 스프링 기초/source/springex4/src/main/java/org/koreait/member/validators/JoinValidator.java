@@ -34,6 +34,10 @@ public class JoinValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required", "비밀번호를 확인하세요.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "Required","회원명을 입력하세요.");
 
+        if (!form.isAgree()) { // 약관 미동의
+            errors.rejectValue("agree", "Required", "회원가입 약관에 동의하세요.");
+
+        }
         // 1. 필수 항목 검증 E
     }
 }
