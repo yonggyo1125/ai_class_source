@@ -8,6 +8,12 @@
     </dd>
 </dl>
 <dl>
+    <dt>좋아하는 언어</dt>
+    <dd>
+        <form:checkboxes items="${programmings2}" itemLabel="label" itemValue="code" path="programming" />
+    </dd>
+</dl>
+<dl>
     <dt>좋아하는 과일</dt>
     <dd>
         <form:select items="${fruits}" path="fruit" />
