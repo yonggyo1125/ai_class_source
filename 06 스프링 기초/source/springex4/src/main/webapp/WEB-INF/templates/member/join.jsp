@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <c:url var="action" value="/member/join" />
 
@@ -7,7 +8,9 @@
 
 <form:form action="${action}" modelAttribute="requestJoin">
     <dl>
-        <dt>이메일</dt>
+        <dt>
+            <spring:message code="email" />
+        </dt>
         <dd>
             <form:input path="email" />
         </dd>
