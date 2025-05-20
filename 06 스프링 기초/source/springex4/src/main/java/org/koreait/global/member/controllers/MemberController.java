@@ -39,9 +39,9 @@ public class MemberController {
     @PostMapping("/join")
     public String joinPs(RequestJoin form) { // requestJoin`
 
+
         // 회원가입 완료 후 로그인 페이지 이동
-        //return "redirect:/member/login";
-        return "forward:/member/login";
+        return "redirect:/member/login";
     }
 
     @GetMapping("/login")
