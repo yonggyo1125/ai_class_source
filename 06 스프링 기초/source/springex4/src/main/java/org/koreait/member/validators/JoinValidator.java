@@ -44,5 +44,14 @@ public class JoinValidator implements Validator {
         if (!password.equals(confirmPassword)) {
             errors.rejectValue("confirmPassword", "Mismatch");
         }
+
+        boolean globalError = true;
+        if (globalError) {
+            errors.reject("commonError1", "공통 에러1 발생");
+        }
+
+        if (globalError) {
+            errors.reject("commonError2", "공통 에러2 발생");
+        }
     }
 }

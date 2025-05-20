@@ -2,14 +2,13 @@ package org.koreait.member.controllers;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.koreait.member.services.JoinService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.JoinValidator2;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/member")
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     private final JoinValidator joinValidator;
-
+    private final JoinService joinService;
 
     /**
      * MemberController에서 공통으로 공유할수 있는  속성
@@ -50,7 +49,7 @@ public class MemberController {
         }
 
         // 회원 가입 검증 성공, 가입 처리
-
+        joinService.process(form);
 
         // 회원가입 완료 후 로그인 페이지 이동
         return "redirect:/member/login";
@@ -67,4 +66,10 @@ public class MemberController {
 
         return "member/login";
     }
+
+    // MemberController 공통 적용 Validator
+//    @InitBinder
+//    public void InitBinder(WebDataBinder binder) {
+//        binder.setValidator(joinValidator);
+//    }
 }
