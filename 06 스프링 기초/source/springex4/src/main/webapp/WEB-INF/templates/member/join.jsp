@@ -20,8 +20,8 @@
             <spring:message code="이메일" />
         </dt>
         <dd>
-            <form:input path="email" />
-            <form:errors path="email" />
+            <form:input path="email" cssErrorClass="error" />
+            <form:errors path="email" element="div" delimeter="" />
         </dd>
     </dl>
     <dl>
@@ -30,6 +30,7 @@
         </dt>
         <dd>
             <form:password path="password" />
+            <form:errors path="password" element="div" delimeter=""  />
         </dd>
     </dl>
     <dl>
@@ -38,6 +39,7 @@
         </dt>
         <dd>
             <form:password path="confirmPassword" />
+            <form:errors path="confirmPassword" element="div" delimeter="" />
         </dd>
     </dl>
     <dl>
@@ -46,6 +48,7 @@
         </dt>
         <dd>
             <form:input path="name" />
+            <form:errors path="name" element="div" delimeter="" />
         </dd>
     </dl>
     <dl>
