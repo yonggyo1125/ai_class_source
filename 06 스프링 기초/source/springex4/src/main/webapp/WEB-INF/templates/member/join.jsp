@@ -16,31 +16,41 @@
         </dd>
     </dl>
     <dl>
-        <dt>비밀번호</dt>
+        <dt>
+            <spring:message code="password" />
+        </dt>
         <dd>
             <form:password path="password" />
         </dd>
     </dl>
     <dl>
-        <dt>비밀번호 확인</dt>
+        <dt>
+            <spring:message code="confirmPassword" />
+        </dt>
         <dd>
             <form:password path="confirmPassword" />
         </dd>
     </dl>
     <dl>
-        <dt>회원명</dt>
+        <dt>
+            <spring:message code="name" />
+        </dt>
         <dd>
             <form:input path="name" />
         </dd>
     </dl>
     <dl>
-        <dt>휴대전화번호</dt>
+        <dt>
+            <spring:message code="mobile" />
+        </dt>
         <dd>
             <form:input path="mobile" />
         </dd>
     </dl>
     <dl>
-        <dt>약관동의</dt>
+        <dt>
+            <spring:message code="termsAgree" />
+        </dt>
         <dd>
             <form:checkbox path="agree" label="회원가입 약관에 동의합니다." value="true" />
         </dd>
