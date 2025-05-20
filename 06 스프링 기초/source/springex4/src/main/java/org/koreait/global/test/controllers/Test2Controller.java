@@ -19,6 +19,7 @@ public class Test2Controller {
         model.addAttribute("genders", Gender.values());
 
         model.addAttribute("programmings2", getProgrammings());
+        model.addAttribute("fruits2", getFruits());
 
         return "test/test";
     }
