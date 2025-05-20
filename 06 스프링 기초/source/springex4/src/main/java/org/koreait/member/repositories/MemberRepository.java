@@ -6,10 +6,6 @@ import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface MemberRepository extends ListCrudRepository<Member, Long> {
-    default boolean existsByEmail(String email) {
-        return exists(email) > 0;
-    }
+    boolean existsByEmail(String email);
 
-    @Query("SELECT COUNT(*) FROM MEMBER WHERE email=:email")
-    int exists(@Param("email") String email);
 }

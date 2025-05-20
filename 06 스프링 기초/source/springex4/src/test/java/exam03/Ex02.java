@@ -15,7 +15,7 @@ public class Ex02 {
 
     @Test
     void test1() {
-        //boolean result = repository.existsByEmail("user01@test.org");
-        //System.out.println(result);
+        boolean result = repository.existsByEmail("user011111@test.org");
+        System.out.println(result);
     }
 }
