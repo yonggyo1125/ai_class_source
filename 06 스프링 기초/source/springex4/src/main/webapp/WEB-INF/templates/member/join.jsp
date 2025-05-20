@@ -6,6 +6,14 @@
 
 <h1>회원가입</h1>
 
+<%--
+<spring:message code="LOGIN_MSG" arguments="사용자01,user01@test.org" />
+<spring:message code="LOGIN_MSG">
+    <spring:argument value="사용자01" />
+    <spring:argument value="user01@test.org" />
+</spring:message>
+--%>
+
 <form:form action="${action}" modelAttribute="requestJoin">
     <dl>
         <dt>

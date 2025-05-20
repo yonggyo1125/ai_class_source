@@ -1,4 +1,4 @@
-package org.koreait.global.test.controllers;
+package org.koreait.test.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

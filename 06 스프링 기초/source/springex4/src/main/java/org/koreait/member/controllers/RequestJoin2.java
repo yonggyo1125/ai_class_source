@@ -1,4 +1,4 @@
-package org.koreait.global.member.controllers;
+package org.koreait.member.controllers;
 
 public record RequestJoin2(String email,
                            String password,

@@ -1,4 +1,4 @@
-package org.koreait.global.member.controllers;
+package org.koreait.member.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

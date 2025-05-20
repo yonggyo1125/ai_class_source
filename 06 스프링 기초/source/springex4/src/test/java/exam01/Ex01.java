@@ -1,7 +1,7 @@
 package exam01;
 
 import org.junit.jupiter.api.Test;
-import org.koreait.global.member.controllers.RequestJoin2;
+import org.koreait.member.controllers.RequestJoin2;
 
 public class Ex01 {
     @Test

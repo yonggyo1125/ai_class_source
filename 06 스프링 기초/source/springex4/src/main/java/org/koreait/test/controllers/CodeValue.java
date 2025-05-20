@@ -1,4 +1,4 @@
-package org.koreait.global.test.controllers;
+package org.koreait.test.controllers;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

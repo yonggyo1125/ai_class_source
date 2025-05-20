@@ -1,4 +1,4 @@
-package org.koreait.global.test.controllers;
+package org.koreait.test.controllers;
 
 public enum Gender {
     FEMALE,

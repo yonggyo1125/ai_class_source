@@ -1,18 +1,23 @@
-package org.koreait.global.member.controllers;
+package org.koreait.member.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import org.koreait.member.validators.JoinValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/member")
+@RequiredArgsConstructor
 public class MemberController {
+
+    private final JoinValidator joinValidator;
+
 
     /**
      * MemberController에서 공통으로 공유할수 있는  속성
@@ -37,8 +42,12 @@ public class MemberController {
     }
 
     @PostMapping("/join")
-    public String joinPs(RequestJoin form) { // requestJoin`
+    public String joinPs(RequestJoin form, Errors errors) { // requestJoin`
+        joinValidator.validate(form, errors);
 
+        if (errors.hasErrors()) { // 검증 실패
+            return "member/join";
+        }
 
         // 회원가입 완료 후 로그인 페이지 이동
         return "redirect:/member/login";
