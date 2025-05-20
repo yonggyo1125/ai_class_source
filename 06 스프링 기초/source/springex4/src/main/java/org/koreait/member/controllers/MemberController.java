@@ -1,10 +1,10 @@
 package org.koreait.member.controllers;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.validators.JoinValidator;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.koreait.member.validators.JoinValidator2;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,7 +42,7 @@ public class MemberController {
     }
 
     @PostMapping("/join")
-    public String joinPs(RequestJoin form, Errors errors) { // requestJoin`
+    public String joinPs(@Valid RequestJoin form, Errors errors) { // requestJoin`
         joinValidator.validate(form, errors);
 
         if (errors.hasErrors()) { // 검증 실패
