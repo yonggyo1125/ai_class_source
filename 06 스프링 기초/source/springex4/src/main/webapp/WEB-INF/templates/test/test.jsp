@@ -29,7 +29,7 @@
 <dl>
     <dt>좋아하는 과일</dt>
     <dd>
-        <form:select path="fruit">
+        <form:select path="fruit" cssClass="fruits">
             <form:option value="">선택</form:option>
             <form:options items="${fruits2}" itemLabel="label" itemValue="code" />
         </form:select>
