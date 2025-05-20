@@ -9,7 +9,7 @@
 <form:form action="${action}" modelAttribute="requestJoin">
     <dl>
         <dt>
-            <spring:message code="email" />
+            <spring:message code="이메일" />
         </dt>
         <dd>
             <form:input path="email" />
@@ -17,7 +17,7 @@
     </dl>
     <dl>
         <dt>
-            <spring:message code="password" />
+            <spring:message code="비밀번호" />
         </dt>
         <dd>
             <form:password path="password" />
