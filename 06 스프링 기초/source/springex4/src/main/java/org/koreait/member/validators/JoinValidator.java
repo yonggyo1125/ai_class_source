@@ -1,12 +1,17 @@
 package org.koreait.member.validators;
 
+import lombok.RequiredArgsConstructor;
 import org.koreait.member.controllers.RequestJoin;
+import org.koreait.member.repositories.MemberRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
+@RequiredArgsConstructor
 public class JoinValidator implements Validator {
+
+    private final MemberRepository repository;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -27,6 +32,11 @@ public class JoinValidator implements Validator {
          */
 
         RequestJoin form = (RequestJoin) target;
+
+        // 1. 중복 회원 체크
+        if (repository.existsByEmail(form.getEmail())) {
+            errors.rejectValue("email", "Duplicated");
+        }
 
         // 2. 비밀번호 확인
         String password = form.getPassword();
