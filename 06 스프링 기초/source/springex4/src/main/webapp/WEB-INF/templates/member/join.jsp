@@ -65,6 +65,7 @@
         </dt>
         <dd>
             <form:checkbox path="agree" label="회원가입 약관에 동의합니다." value="true" />
+            <form:errors path="agree" element="div" delimeter="" />
         </dd>
     </dl>
     <button type="submit">가입하기</button>
