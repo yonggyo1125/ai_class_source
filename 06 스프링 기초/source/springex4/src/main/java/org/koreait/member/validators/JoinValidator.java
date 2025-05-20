@@ -32,7 +32,7 @@ public class JoinValidator implements Validator {
         String password = form.getPassword();
         String confirmPassword = form.getConfirmPassword();
         if (!password.equals(confirmPassword)) {
-
+            errors.rejectValue("confirmPassword", "Mismatch");
         }
     }
 }
