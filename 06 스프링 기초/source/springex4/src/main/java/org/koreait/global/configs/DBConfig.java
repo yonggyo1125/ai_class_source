@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJdbcRepositories("org.koreait")
 public class DBConfig {
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {

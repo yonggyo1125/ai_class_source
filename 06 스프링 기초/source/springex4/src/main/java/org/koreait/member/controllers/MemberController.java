@@ -49,6 +49,9 @@ public class MemberController {
             return "member/join";
         }
 
+        // 회원 가입 검증 성공, 가입 처리
+
+
         // 회원가입 완료 후 로그인 페이지 이동
         return "redirect:/member/login";
     }

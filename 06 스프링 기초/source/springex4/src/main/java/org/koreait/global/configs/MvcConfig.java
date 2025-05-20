@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.koreait")
-@EnableJdbcRepositories("org.koreait")
 @Import(ControllerConfig.class)
 public class MvcConfig implements WebMvcConfigurer {
     @Override
