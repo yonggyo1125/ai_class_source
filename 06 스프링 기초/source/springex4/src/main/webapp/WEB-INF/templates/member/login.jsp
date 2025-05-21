@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <c:url var="action" value="/member/login" />
+<spring:message var="saveEmail" value="아이디_저장하기" />
 
 <form:form action="${action}" modelAttribute="requestLogin">
     <form:errors element="div" delimiter="" />
@@ -21,7 +22,14 @@
             <spring:message code="비밀번호" />
         </dt>
         <dd>
-
+            <form:password path="password" />
+            <form:errors path="password" element="div" delimiter="" />
         </dd>
     </dl>
+    <div>
+        <form:checkbox path="saveEmail" value="true" label="${saveEmail}" />
+    </div>
+    <button type="submit">
+        <spring:message code="로그인" />
+    </button>
 </form:form>
