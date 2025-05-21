@@ -1,17 +1,20 @@
 package org.koreait.survey.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/survey")
+@SessionAttributes("requestSurvey")
 public class SurveyController {
 
+    @ModelAttribute("requestSurvey")
+    public RequestSurvey requestSurvey() {
+        return new RequestSurvey();
+    }
+
     @GetMapping("/page1")
-    public String page1(@ModelAttribute RequestSurvey form) {
+    public String page1() {
 
         return "survey/page1";
     }
