@@ -6,7 +6,7 @@
 <spring:message var="saveEmail" code="아이디_저장하기" />
 
 <form:form action="${action}" modelAttribute="requestLogin">
-
+    <form:hidden path="redirectUrl" />
     <dl>
         <dt>
             <spring:message code="이메일" />

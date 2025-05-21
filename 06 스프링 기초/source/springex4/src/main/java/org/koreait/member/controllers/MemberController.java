@@ -62,7 +62,12 @@ public class MemberController {
     }
 
     @GetMapping("/login")
-    public String login(@ModelAttribute RequestLogin form) {
+    public String login(@ModelAttribute RequestLogin form,
+                        @CookieValue(name="savedEmail", required = false) String email) {
+        if (email != null) {
+            form.setEmail(email);
+            form.setSaveEmail(true);
+        }
 
         return "member/login";
     }
