@@ -1,7 +1,9 @@
 package org.koreait.member.validators;
 
+import com.sun.net.httpserver.Request;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.controllers.RequestLogin;
+import org.koreait.member.entities.Member;
 import org.koreait.member.repositories.MemberRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -20,6 +22,23 @@ public class LoginValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
+
+        if (errors.hasErrors()) {
+            return;
+        }
+
+        /**
+         * 1. 이메일로 회원이 조회되는 지
+         * 2. 조회된 회원의 비밀번호가 일치하는지 체크
+         */
+        RequestLogin form = (RequestLogin) target;
+        String email = form.getEmail();
+        String password = form.getPassword();
+        // 1. 이메일로 회원이 조회되는 지
+        Member member = repository.findByEmail(email).orElse(null);
+        if (member == null) {
+            errors.rejectValue("email", "NotFound");
+        }
 
     }
 }

@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.koreait.member.services.JoinService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.JoinValidator2;
+import org.koreait.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
@@ -18,6 +19,8 @@ public class MemberController {
 
     private final JoinValidator joinValidator;
     private final JoinService joinService;
+
+    private final LoginValidator loginValidator;
 
     /**
      * MemberController에서 공통으로 공유할수 있는  속성
@@ -64,6 +67,8 @@ public class MemberController {
 
     @PostMapping("/login")
     public String loginPs(@Valid RequestLogin form, Errors errors) {
+
+        loginValidator.validate(form, errors);
 
         if (errors.hasErrors()) {
             return "member/login";
