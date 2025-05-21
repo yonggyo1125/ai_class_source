@@ -17,6 +17,9 @@ public class MemberOnlyInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        // 미로그인 상태, 로그인 페이지 이동
+        response.sendRedirect(request.getContextPath() + "/member/login?redirectUrl=/survey/page1");
+
         return false;
     }
 }
