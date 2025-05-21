@@ -38,13 +38,12 @@ public class LoginValidator implements Validator {
         // 1. 이메일로 회원이 조회되는 지
         Member member = repository.findByEmail(email).orElse(null);
         if (member == null) {
-            errors.rejectValue("email", "NotFound");
+           errors.reject("Invalid.login");
         }
 
         // 2. 조회된 회원의 비밀번호가 일치하는지 체크
         if (member != null && !BCrypt.checkpw(password, member.getPassword())) {
-            errors.rejectValue("password", "Mismatch");
-
+            errors.reject("Invalid.login");
         }
     }
 }

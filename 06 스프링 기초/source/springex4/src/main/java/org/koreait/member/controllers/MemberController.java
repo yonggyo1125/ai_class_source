@@ -3,6 +3,7 @@ package org.koreait.member.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.services.JoinService;
+import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.JoinValidator2;
 import org.koreait.member.validators.LoginValidator;
@@ -21,6 +22,7 @@ public class MemberController {
     private final JoinService joinService;
 
     private final LoginValidator loginValidator;
+    private final LoginService loginService;
 
     /**
      * MemberController에서 공통으로 공유할수 있는  속성
@@ -74,6 +76,8 @@ public class MemberController {
             return "member/login";
         }
 
+        // 검증 성공시 로그인 처리
+        loginService.process(form);
 
         // 로그인 성공시 이동
         String redirectUrl = form.getRedirectUrl();

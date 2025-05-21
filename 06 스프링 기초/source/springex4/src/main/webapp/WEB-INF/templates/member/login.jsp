@@ -6,7 +6,6 @@
 <spring:message var="saveEmail" code="아이디_저장하기" />
 
 <form:form action="${action}" modelAttribute="requestLogin">
-    <form:errors element="div" delimiter="" />
 
     <dl>
         <dt>
@@ -32,4 +31,5 @@
     <button type="submit">
         <spring:message code="로그인" />
     </button>
+     <form:errors element="div" delimiter="" />
 </form:form>
