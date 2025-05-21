@@ -6,6 +6,7 @@ import org.koreait.member.services.JoinService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.JoinValidator2;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -68,7 +69,12 @@ public class MemberController {
             return "member/login";
         }
 
-        return "member/login";
+
+        // 로그인 성공시 이동
+        String redirectUrl = form.getRedirectUrl();
+
+        return "redirect:" + (StringUtils.hasText(redirectUrl) ? redirectUrl : "/");
+
     }
 
     // MemberController 공통 적용 Validator
