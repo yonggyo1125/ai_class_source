@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,11 +33,13 @@ public class Test3Controller {
 
     @ResponseBody
     @GetMapping("/sub3")
-    public void exam3() {
-        // /spring/test3
-        Cookie cookie = new Cookie("key3", "value3");
-        cookie.setPath(request.getContextPath() + "/test3");
-        response.addCookie(cookie);
+    public void exam3(@CookieValue(name="key3", required = false) String value) {
+        System.out.printf("key3:%s%n", value);
+
+//        // /spring/test3
+//        Cookie cookie = new Cookie("key3", "value3");
+//        cookie.setPath(request.getContextPath() + "/test3");
+//        response.addCookie(cookie);
     }
 
     @ResponseBody
