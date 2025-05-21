@@ -62,7 +62,11 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String loginPs() {
+    public String loginPs(@Valid RequestLogin form, Errors errors) {
+
+        if (errors.hasErrors()) {
+            return "member/login";
+        }
 
         return "member/login";
     }
