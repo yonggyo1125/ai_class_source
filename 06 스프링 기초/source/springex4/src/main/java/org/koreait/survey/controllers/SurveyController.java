@@ -23,4 +23,18 @@ public class SurveyController {
 
         return "survey/page2";
     }
+
+    @PostMapping("/page3")
+    public String page3(RequestSurvey form) {
+        System.out.println("page3:" + form);
+
+        return "survey/page3";
+    }
+
+    @PostMapping("/done")
+    public String surveyPs(RequestSurvey form) {
+        System.out.println("done:" + form);
+
+        return "survey/done";
+    }
 }
