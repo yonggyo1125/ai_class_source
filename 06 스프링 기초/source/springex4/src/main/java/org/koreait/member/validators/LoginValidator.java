@@ -1,6 +1,7 @@
 package org.koreait.member.validators;
 
 import lombok.RequiredArgsConstructor;
+import org.koreait.member.controllers.RequestLogin;
 import org.koreait.member.repositories.MemberRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -14,7 +15,7 @@ public class LoginValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return false;
+        return clazz.isAssignableFrom(RequestLogin.class);
     }
 
     @Override
