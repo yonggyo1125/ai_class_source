@@ -38,4 +38,16 @@ public class Test3Controller {
         cookie.setPath(request.getContextPath() + "/test3");
         response.addCookie(cookie);
     }
+
+    @ResponseBody
+    @GetMapping("/sub3/ex01")
+    public void exam4() {
+        // /spring/test3
+        Cookie cookie = new Cookie("key4", "value4");
+        cookie.setPath(request.getContextPath() + "/test3");
+        cookie.setMaxAge(60 * 60 * 24 * 7); //쿠키의 만료 시간을 7일
+        //cookie.setMaxAge(0); // 쿠키의 만료 시간 1970.1.1, 쿠키 삭제
+        cookie.setHttpOnly(true); // 자바스크립트에서 조회 불가
+        response.addCookie(cookie);
+    }
 }
