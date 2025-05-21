@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <c:url var="action" value="/member/login" />
-<spring:message var="saveEmail" value="아이디_저장하기" />
+<spring:message var="saveEmail" code="아이디_저장하기" />
 
 <form:form action="${action}" modelAttribute="requestLogin">
     <form:errors element="div" delimiter="" />
