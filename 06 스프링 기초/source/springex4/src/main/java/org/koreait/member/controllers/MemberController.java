@@ -1,7 +1,9 @@
 package org.koreait.member.controllers;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.koreait.member.entities.Member;
 import org.koreait.member.services.JoinService;
 import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
@@ -89,6 +91,20 @@ public class MemberController {
 
         return "redirect:" + (StringUtils.hasText(redirectUrl) ? redirectUrl : "/");
 
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // 세션 비우기
+
+        return "redirect:/member/login";
+
+    }
+
+    @ResponseBody
+    @GetMapping("/info")
+    public void memberInfo(@SessionAttribute(name="loggedMember", required = false) Member member) {
+        System.out.println(member);
     }
 
     // MemberController 공통 적용 Validator
