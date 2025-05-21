@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.koreait.member.controllers.RequestLogin;
 import org.koreait.member.entities.Member;
 import org.koreait.member.repositories.MemberRepository;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -40,5 +41,10 @@ public class LoginValidator implements Validator {
             errors.rejectValue("email", "NotFound");
         }
 
+        // 2. 조회된 회원의 비밀번호가 일치하는지 체크
+        if (member != null && !BCrypt.checkpw(password, member.getPassword())) {
+            errors.rejectValue("password", "Mismatch");
+
+        }
     }
 }
