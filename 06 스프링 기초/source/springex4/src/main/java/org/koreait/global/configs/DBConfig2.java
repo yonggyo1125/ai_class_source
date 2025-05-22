@@ -13,15 +13,14 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Profile("dev")
+@Profile("prod")
 @Configuration
 @EnableTransactionManagement
 @EnableJdbcRepositories("org.koreait")
-public class DBConfig extends AbstractJdbcConfiguration {
+public class DBConfig2 extends AbstractJdbcConfiguration {
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
-        System.out.println("dev - dataSource()");
-
+        System.out.println("prod - dataSource()");
         DataSource ds = new DataSource();
         // 연결 설정
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
