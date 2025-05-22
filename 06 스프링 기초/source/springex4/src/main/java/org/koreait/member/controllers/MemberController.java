@@ -4,16 +4,23 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.entities.Member;
+import org.koreait.member.repositories.MemberRepository;
 import org.koreait.member.services.JoinService;
 import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.JoinValidator2;
 import org.koreait.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/member")
@@ -25,6 +32,8 @@ public class MemberController {
 
     private final LoginValidator loginValidator;
     private final LoginService loginService;
+
+    private final MemberRepository repository;
 
     /**
      * MemberController에서 공통으로 공유할수 있는  속성
@@ -107,8 +116,16 @@ public class MemberController {
         System.out.println(member);
     }
 
-    @GetMapping
-    public String memberList() {
+    @GetMapping("/list")
+    public String memberList(@ModelAttribute MemberSearch search, Model model) {
+        LocalDate sDate = Objects.requireNonNullElse(search.getSDate(), LocalDate.now());
+        LocalDate eDate = Objects.requireNonNullElse(search.getEDate(), LocalDate.now());
+
+        LocalDateTime _sDate = sDate.atStartOfDay(); // 지정된 날짜의 자정
+        LocalDateTime _eDate = eDate.atTime(23,59,59);
+
+        List<Member> items = repository.findByRegDtBetween(_sDate, _eDate);
+        model.addAttribute("items", items);
 
         return "member/list";
     }
