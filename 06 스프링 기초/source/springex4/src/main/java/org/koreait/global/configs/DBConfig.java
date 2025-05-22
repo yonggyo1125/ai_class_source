@@ -1,6 +1,7 @@
 package org.koreait.global.configs;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -18,16 +19,24 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJdbcRepositories("org.koreait")
 public class DBConfig extends AbstractJdbcConfiguration {
+
+    @Value("${db.username}")
+    private String username;
+
+    @Value("${db.password}")
+    private String password;
+
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
         System.out.println("dev - dataSource()");
+        System.out.printf("username=%s, password=%s%n", username, password);
 
         DataSource ds = new DataSource();
         // 연결 설정
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
         ds.setUrl("jdbc:mysql://localhost:3306/study2");
-        ds.setUsername("study2");
-        ds.setPassword("1234");
+        ds.setUsername(username);
+        ds.setPassword(password);
 
         // 커넥션 풀 설정
         ds.setInitialSize(2);
