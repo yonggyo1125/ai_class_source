@@ -21,6 +21,11 @@
                 org.koreait.global.configs.MvcConfig
             </param-value>
         </init-param>
+        <multipart-config>
+            <max-file-size>20971520</max-file-size> <!--  1MB * 20 -->
+            <max-request-size>41943040</max-request-size> <!-- 40MB -->
+            <file-size-threshold>20971520</file-size-threshold>
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>

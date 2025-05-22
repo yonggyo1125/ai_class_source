@@ -148,26 +148,26 @@ public class MemberController {
     }
 
     //@ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(Exception.class)
-    public ModelAndView errorHandler(Exception e, Model model) {
-
-        model.addAttribute("message", e.getMessage());
-
-
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-
-        if (e instanceof CommonException commonException) {
-            status = commonException.getStatus();
-        }
-
-        e.printStackTrace();
-
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("error/error");
-        mv.setStatus(status);
-
-        return mv;
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ModelAndView errorHandler(Exception e, Model model) {
+//
+//        model.addAttribute("message", e.getMessage());
+//
+//
+//        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+//
+//        if (e instanceof CommonException commonException) {
+//            status = commonException.getStatus();
+//        }
+//
+//        e.printStackTrace();
+//
+//        ModelAndView mv = new ModelAndView();
+//        mv.setViewName("error/error");
+//        mv.setStatus(status);
+//
+//        return mv;
+//    }
 
     // MemberController 공통 적용 Validator
 //    @InitBinder
