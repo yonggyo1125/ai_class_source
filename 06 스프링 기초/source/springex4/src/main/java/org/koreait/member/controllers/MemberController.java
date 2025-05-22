@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.entities.Member;
+import org.koreait.member.exceptions.MemberNotFoundException;
 import org.koreait.member.repositories.MemberRepository;
 import org.koreait.member.services.JoinService;
 import org.koreait.member.services.LoginService;
@@ -136,6 +137,11 @@ public class MemberController {
                      @PathVariable(name="email", required = false) String email) {
         System.out.println("seq:" + mSeq);
         System.out.println("email:" + email);
+
+        if (StringUtils.hasText(email)) {
+            Member member = repository.findByEmail(email).orElseThrow(MemberNotFoundException::new);
+            System.out.println(member);
+        }
     }
 
     // MemberController 공통 적용 Validator
