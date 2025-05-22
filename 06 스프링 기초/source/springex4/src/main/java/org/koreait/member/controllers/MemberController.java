@@ -144,6 +144,12 @@ public class MemberController {
         }
     }
 
+    @ExceptionHandler(MemberNotFoundException.class)
+    public String errorHandler() {
+
+        return "error/error";
+    }
+
     // MemberController 공통 적용 Validator
 //    @InitBinder
 //    public void InitBinder(WebDataBinder binder) {
