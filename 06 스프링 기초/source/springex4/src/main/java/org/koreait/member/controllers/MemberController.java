@@ -107,6 +107,12 @@ public class MemberController {
         System.out.println(member);
     }
 
+    @GetMapping
+    public String memberList() {
+
+        return "member/list";
+    }
+
     // MemberController 공통 적용 Validator
 //    @InitBinder
 //    public void InitBinder(WebDataBinder binder) {
