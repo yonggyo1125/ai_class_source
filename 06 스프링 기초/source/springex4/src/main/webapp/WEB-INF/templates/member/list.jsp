@@ -5,8 +5,11 @@
 
 <h1>회원 검색</h1>
 <form:form method="GET" action="${action}" autocomplete="off" modelAttribute="memberSearch">
-    <form:input path="sDate" /> ~
+    <form:input path="sDate" />
+    <form:errors path="sDate" />
+     ~
     <form:input path="eDate" />
+    <form:errors path="eDate" />
     <button type="submit">조회하기</button>
 </form:form>
 

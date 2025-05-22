@@ -117,7 +117,7 @@ public class MemberController {
     }
 
     @GetMapping("/list")
-    public String memberList(@ModelAttribute MemberSearch search, Model model) {
+    public String memberList(@ModelAttribute @Valid MemberSearch search, Errors errors, Model model) {
         LocalDate sDate = Objects.requireNonNullElse(search.getSDate(), LocalDate.now());
         LocalDate eDate = Objects.requireNonNullElse(search.getEDate(), LocalDate.now());
 
@@ -128,6 +128,14 @@ public class MemberController {
         model.addAttribute("items", items);
 
         return "member/list";
+    }
+
+    @ResponseBody
+    @GetMapping({"/view/{seq}", "/view/info/{email}"})
+    public void view(@PathVariable(name="seq", required = false) Long mSeq,
+                     @PathVariable(name="email", required = false) String email) {
+        System.out.println("seq:" + mSeq);
+        System.out.println("email:" + email);
     }
 
     // MemberController 공통 적용 Validator
