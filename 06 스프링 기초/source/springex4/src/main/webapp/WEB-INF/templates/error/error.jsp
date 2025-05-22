@@ -1,2 +1,2 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<h1>에러 발생...</h1>
+<h1>${message}</h1>

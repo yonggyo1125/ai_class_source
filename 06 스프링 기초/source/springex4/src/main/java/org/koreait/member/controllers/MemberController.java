@@ -3,6 +3,7 @@ package org.koreait.member.controllers;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.koreait.global.exceptions.CommonException;
 import org.koreait.member.entities.Member;
 import org.koreait.member.exceptions.MemberNotFoundException;
 import org.koreait.member.repositories.MemberRepository;
@@ -18,6 +19,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -145,15 +147,26 @@ public class MemberController {
         }
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(MemberNotFoundException.class)
-    public String errorHandler(MemberNotFoundException e, Model model) {
+    //@ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(Exception.class)
+    public ModelAndView errorHandler(Exception e, Model model) {
 
         model.addAttribute("message", e.getMessage());
 
+
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+
+        if (e instanceof CommonException commonException) {
+            status = commonException.getStatus();
+        }
+
         e.printStackTrace();
 
-        return "error/error";
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("error/error");
+        mv.setStatus(status);
+
+        return mv;
     }
 
     // MemberController 공통 적용 Validator
