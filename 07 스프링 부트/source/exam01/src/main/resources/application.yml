@@ -1,0 +1,11 @@
+server:
+  port: 3000
+  servlet:
+    session.cookie.name: bfwa21abeq
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/study2
+    username: study2
+    password: 1234
