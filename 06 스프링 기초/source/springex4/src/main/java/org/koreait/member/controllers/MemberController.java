@@ -11,6 +11,7 @@ import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.koreait.member.validators.JoinValidator2;
 import org.koreait.member.validators.LoginValidator;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -144,8 +145,13 @@ public class MemberController {
         }
     }
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(MemberNotFoundException.class)
-    public String errorHandler() {
+    public String errorHandler(MemberNotFoundException e, Model model) {
+
+        model.addAttribute("message", e.getMessage());
+
+        e.printStackTrace();
 
         return "error/error";
     }
