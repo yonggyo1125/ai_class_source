@@ -6,9 +6,9 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/study2
-    username: study2
-    password: 1234
+    url: jdbc:mysql://${db.url}
+    username: ${db.username}
+    password: ${db.password}
 
 logging:
   level:
