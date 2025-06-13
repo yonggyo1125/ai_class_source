@@ -3,21 +3,24 @@ import TodoForm from '../components/TodoForm';
 import TodoItems from '../components/TodoItems';
 
 const TodoContainer = () => {
-  const [todo, setTodo] = useState();
+    const [form, setForm] = useState({});
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('todo', todo);
+    console.log('form', form);
   };
 
   const onChange = (e) => {
-    setTodo(e.target.value);
+    
   };
+
+
 
   return (
     <>
-      <TodoForm onSubmit={onSubmit} onChange={onChange} />
+      <TodoForm onSubmit={onSubmit} onChange={onChange}  />
       <TodoItems />
+      todo: {form.title} / todoContent: {form.content}
     </>
   );
 };
