@@ -15,7 +15,10 @@ const Counter = () => {
   return (
     <>
       <h1>{number}</h1>
-      <button type="button" onClick={() => setNumber(number - 1)}>
+      <button
+        type="button"
+        onClick={() => setNumber((prevNumber) => prevNumber - 1)}
+      >
         -1
       </button>
       <button type="button" onClick={onPlus}>
