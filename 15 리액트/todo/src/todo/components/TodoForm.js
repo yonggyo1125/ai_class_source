@@ -1,6 +1,6 @@
 import { FaPlusSquare } from 'react-icons/fa';
 
-const TodoForm = ({ onSubmit, onChange }) => {
+const TodoForm = ({ onSubmit, onChange, form }) => {
   return (
     <form onSubmit={onSubmit}>
       <div>
@@ -9,6 +9,7 @@ const TodoForm = ({ onSubmit, onChange }) => {
           onChange={onChange}
           name="title"
           placeholder="할일 제목"
+          value={form?.title ?? ''}
         />
       </div>
       <div>
@@ -16,7 +17,8 @@ const TodoForm = ({ onSubmit, onChange }) => {
           onChange={onChange}
           name="content"
           placeholder="할일 내용"
-        ></textarea>
+          value={form?.content ?? ''}
+        />
       </div>
       <button type="submit">
         <FaPlusSquare />

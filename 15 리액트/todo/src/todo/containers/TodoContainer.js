@@ -4,10 +4,12 @@ import TodoItems from '../components/TodoItems';
 
 const TodoContainer = () => {
   const [form, setForm] = useState({});
+  const [items, setItems] = useState([]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('form', form);
+
+    setItems(items.concat({ ...form, id: Date.now() }));
   };
 
   const onChange = (e) => {
@@ -16,9 +18,8 @@ const TodoContainer = () => {
 
   return (
     <>
-      <TodoForm onSubmit={onSubmit} onChange={onChange} />
-      <TodoItems />
-      todo: {form.title} / todoContent: {form.content}
+      <TodoForm onSubmit={onSubmit} onChange={onChange} form={form} />
+      <TodoItems items={items} />
     </>
   );
 };

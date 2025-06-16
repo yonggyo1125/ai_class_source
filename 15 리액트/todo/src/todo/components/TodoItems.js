@@ -1,5 +1,13 @@
-const TodoItems = () => {
-    return <h1>할일 목록...</h1>
-}
+const TodoItems = ({ items }) => {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.id}>
+          {item.title} / {item.content}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default TodoItems;
