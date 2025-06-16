@@ -1,9 +1,11 @@
+import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
+
 const TodoItems = ({ items }) => {
   return (
     <ul>
-      {items.map((item) => (
-        <li key={item.id}>
-          {item.title} / {item.content}
+      {items.map(({ id, title, content }) => (
+        <li key={id}>
+          {title} / {content}
         </li>
       ))}
     </ul>
