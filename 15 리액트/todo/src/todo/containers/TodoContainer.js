@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TodoForm from '../components/TodoForm';
 import TodoItems from '../components/TodoItems';
+import { HiOutlineTemplate } from 'react-icons/hi';
 
 const TodoContainer = () => {
   const [form, setForm] = useState({});
@@ -43,6 +44,15 @@ const TodoContainer = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // 체크박스 토클 처리
+  const onToggle = (id) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item,
+      ),
+    );
+  };
+
   return (
     <>
       <TodoForm
@@ -51,7 +61,7 @@ const TodoContainer = () => {
         form={form}
         errors={errors}
       />
-      <TodoItems items={items} />
+      <TodoItems items={items} onToggle={onToggle} />
     </>
   );
 };
