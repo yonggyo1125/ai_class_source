@@ -1,7 +1,11 @@
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
-const TodoItem = (props) => {
-  console.log(props);
-  return <li></li>;
+const TodoItem = ({ title, content, checked }) => {
+  return (
+    <li>
+      {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+      {title} / {content}
+    </li>
+  );
 };
 
 export default TodoItem;
