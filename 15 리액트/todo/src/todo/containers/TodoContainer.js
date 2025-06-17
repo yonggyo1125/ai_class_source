@@ -53,6 +53,11 @@ const TodoContainer = () => {
     );
   };
 
+  // 스케줄 하나 삭제 처리
+  const onRemove = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
   return (
     <>
       <TodoForm
@@ -61,7 +66,7 @@ const TodoContainer = () => {
         form={form}
         errors={errors}
       />
-      <TodoItems items={items} onToggle={onToggle} />
+      <TodoItems items={items} onToggle={onToggle} onRemove={onRemove} />
     </>
   );
 };

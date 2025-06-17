@@ -1,10 +1,15 @@
 import TodoItem from './TodoItem';
 
-const TodoItems = ({ items, onToggle }) => {
+const TodoItems = ({ items, onToggle, onRemove }) => {
   return (
     <ul>
       {items.map((props) => (
-        <TodoItem key={props.id} {...props} onToggle={onToggle} />
+        <TodoItem
+          key={props.id}
+          {...props}
+          onToggle={onToggle}
+          onRemove={onRemove}
+        />
       ))}
     </ul>
   );
