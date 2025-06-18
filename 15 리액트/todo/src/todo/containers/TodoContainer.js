@@ -58,6 +58,11 @@ const TodoContainer = () => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
+  // 선택된 스케줄 일괄 삭제 처리
+  const onRemoveAll = () => {
+    setItems(items.filter(({ checked }) => !checked));
+  };
+
   return (
     <>
       <TodoForm
@@ -66,7 +71,12 @@ const TodoContainer = () => {
         form={form}
         errors={errors}
       />
-      <TodoItems items={items} onToggle={onToggle} onRemove={onRemove} />
+      <TodoItems
+        items={items}
+        onToggle={onToggle}
+        onRemove={onRemove}
+        onRemoveAll={onRemoveAll}
+      />
     </>
   );
 };
