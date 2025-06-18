@@ -1,7 +1,13 @@
-import Counter from './components/Counter';
+// import Counter from './components/Counter';
+
+// const App = () => {
+//   return <Counter />;
+// };
+
+import News from './components/News';
 
 const App = () => {
-  return <Counter />;
+  return <News />;
 };
 
 export default App;
