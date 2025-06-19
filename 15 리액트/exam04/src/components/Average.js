@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 
 const getAverage = (items) => {
   if (items.length === 0) return 0;
@@ -6,6 +6,8 @@ const getAverage = (items) => {
   const total = items.reduce((a, b) => a + b);
 
   const avg = Math.round((total / items.length) * 10) / 10;
+  console.log('getAverage() 호출!');
+
   return avg;
 };
 
@@ -27,6 +29,9 @@ const Average = () => {
     [number],
   );
 
+  // items가 변경되지 않으면 기존에 연산된 값을 기록하고 그걸 사용, items가 바뀌면 새로 호출 값을 저장
+  const avg = useMemo(() => getAverage(items), [items]);
+
   return (
     <>
       <form onSubmit={onSubmit} autoComplete="off">
@@ -38,7 +43,8 @@ const Average = () => {
           <li key={i + '-' + item}>{item}</li>
         ))}
       </ul>
-      <div>평균: {getAverage(items)}</div>
+      <div>평균: {avg}</div>
+      {/*<div>평균: {getAverage(items)}</div> */}
     </>
   );
 };
