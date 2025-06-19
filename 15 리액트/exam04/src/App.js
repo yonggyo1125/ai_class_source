@@ -3,10 +3,16 @@
 // const App = () => {
 //   return <Counter />;
 // };
-import Todo from './components/Todo';
+// import Todo from './components/Todo';
+
+// const App = () => {
+//   return <Todo />;
+// };
+
+import Counter2 from './components/Counter2';
 
 const App = () => {
-  return <Todo />;
+  return <Counter2 />;
 };
 
 export default App;
