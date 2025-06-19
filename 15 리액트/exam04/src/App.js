@@ -3,11 +3,10 @@
 // const App = () => {
 //   return <Counter />;
 // };
-
-import News from './components/News';
+import Todo from './components/Todo';
 
 const App = () => {
-  return <News />;
+  return <Todo />;
 };
 
 export default App;
