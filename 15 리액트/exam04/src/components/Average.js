@@ -17,6 +17,15 @@ const Average = () => {
     },
     [number],
   );
+
+  return (
+    <>
+      <form onSubmit={onSubmit} autoComplete="off">
+        <input type="number" onChange={onChange} value={number} />
+        <button type="submit">등록</button>
+      </form>
+    </>
+  );
 };
 
 export default Average;
