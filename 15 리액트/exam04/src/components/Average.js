@@ -24,6 +24,11 @@ const Average = () => {
         <input type="number" onChange={onChange} value={number} />
         <button type="submit">등록</button>
       </form>
+      <ul>
+        {items.map((item, i) => (
+          <li key={i + '-' + item}>{item}</li>
+        ))}
+      </ul>
     </>
   );
 };
