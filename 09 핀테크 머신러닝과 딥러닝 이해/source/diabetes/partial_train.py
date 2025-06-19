@@ -25,3 +25,20 @@ with open(base_path + "model.pkl", "rb") as f:
 
 with open(base_path + "scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
+
+# DB 연결 및 추가학습할 데이터 조회
+items = []
+gender = {'FEMALE': 0, 'MALE': 1, 'OTHER': 2}
+SH = {'NO_INFO': 0, 'CURRENT': 1, 'EVER': 2, 'FORMER': 3, 'NEVER': 4, 'NOT_CURRENT': 5}
+with pymysql(host=host, port=port, user=user, passwd=passwd, db=database, charset='utf8') as db:
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM SURVEY_DIABETES WHERE trainDone IS NULL OR trainDone = 0")
+    for row in cursor.fetchall():
+        item = list(row[2:-4])
+        item[0] = gender[item[0]]
+        item[4] = SH[item[4]]
+
+        items.append(item)
+
+
+print(items)
