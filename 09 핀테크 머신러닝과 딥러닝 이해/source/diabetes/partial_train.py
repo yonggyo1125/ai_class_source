@@ -11,7 +11,7 @@ if len(sys.argv) < 6:
     sys.exit(-1)
 
 host = sys.argv[1]
-port = sys.argv[2]
+port = int(sys.argv[2])
 user = sys.argv[3]
 passwd = sys.argv[4]
 database = sys.argv[5]
@@ -30,7 +30,7 @@ with open(base_path + "scaler.pkl", "rb") as f:
 items = []
 gender = {'FEMALE': 0, 'MALE': 1, 'OTHER': 2}
 SH = {'NO_INFO': 0, 'CURRENT': 1, 'EVER': 2, 'FORMER': 3, 'NEVER': 4, 'NOT_CURRENT': 5}
-with pymysql(host=host, port=port, user=user, passwd=passwd, db=database, charset='utf8') as db:
+with pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=database, charset='utf8') as db:
     cursor = db.cursor()
     cursor.execute("SELECT * FROM SURVEY_DIABETES WHERE trainDone IS NULL OR trainDone = 0")
     for row in cursor.fetchall():
