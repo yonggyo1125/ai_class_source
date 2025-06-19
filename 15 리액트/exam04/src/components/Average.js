@@ -1,4 +1,5 @@
-import { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
+import AverageChild1 from './AverageChild1';
 
 const getAverage = (items) => {
   if (items.length === 0) return 0;
@@ -44,9 +45,10 @@ const Average = () => {
         ))}
       </ul>
       <div>평균: {avg}</div>
+      <AverageChild1 />
       {/*<div>평균: {getAverage(items)}</div> */}
     </>
   );
 };
 
-export default Average;
+export default React.memo(Average);
