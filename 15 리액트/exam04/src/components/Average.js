@@ -1,5 +1,14 @@
 import { useState, useCallback } from 'react';
 
+const getAverage = (items) => {
+  if (items.length === 0) return 0;
+
+  const total = items.reduce((a, b) => a + b);
+
+  const avg = Math.round((total / items.length) * 10) / 10;
+  return avg;
+};
+
 const Average = () => {
   const [items, setItems] = useState([]);
   const [number, setNumber] = useState('');
@@ -21,7 +30,7 @@ const Average = () => {
   return (
     <>
       <form onSubmit={onSubmit} autoComplete="off">
-        <input type="number" onChange={onChange} value={number} />
+        <input type="number" onChange={onChange} />
         <button type="submit">등록</button>
       </form>
       <ul>
@@ -29,6 +38,7 @@ const Average = () => {
           <li key={i + '-' + item}>{item}</li>
         ))}
       </ul>
+      <div>평균: {getAverage(items)}</div>
     </>
   );
 };

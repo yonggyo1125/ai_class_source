@@ -9,10 +9,16 @@
 //   return <Todo />;
 // };
 
-import Counter2 from './components/Counter2';
+// import Counter2 from './components/Counter2';
+
+// const App = () => {
+//   return <Counter2 />;
+// };
+
+import Average from './components/Average';
 
 const App = () => {
-  return <Counter2 />;
+  return <Average />;
 };
 
 export default App;
