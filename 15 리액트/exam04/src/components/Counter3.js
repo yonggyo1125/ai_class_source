@@ -1,9 +1,14 @@
 import React, { useReducer, useCallback } from 'react';
 
 function reducer(state, action) {
-  console.log('state', state, 'action', action);
-
-  return state;
+  switch (action.type) {
+    case 'INCREASE':
+      return { ...state, number: state.number + 1 };
+    case 'DECREASE':
+      return { ...state, number: state.number - 1 };
+    default:
+      return state;
+  }
 }
 
 const Counter3 = () => {
