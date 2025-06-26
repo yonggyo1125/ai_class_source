@@ -1,0 +1,24 @@
+.wrapper {
+  background: black;
+  padding: 1rem;
+  color: white;
+  font-size: 2rem;
+  transition: all 1s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.inverted {
+  color: black;
+  background: white;
+  border: 1px solid black;
+}
+
+:global {
+  .something {
+    font-weight: bold;
+    color: aqua;
+  }
+}
