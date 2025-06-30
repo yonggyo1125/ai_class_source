@@ -4,10 +4,12 @@ import MemberRoutes from './global/routes/MemberRoutes';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<MainPage />} />
+    <>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
       <MemberRoutes />
-    </Routes>
+    </>
   );
 };
 
