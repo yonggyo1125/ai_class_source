@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, className }) => {
   const { subject } = item;
-  return <li>{subject}</li>;
+  return <li className={className}>{subject}</li>;
 };
+
+const StyledListItem = styled(ListItem)`
+  border: 1px solid #000;
+  padding: 8px 10px;
+`;
 
 const StyledComponent2 = () => {
   const [items, setItems] = useState([
@@ -17,7 +23,7 @@ const StyledComponent2 = () => {
   return (
     <ul>
       {items.map((item) => (
-        <ListItem key={item.id} item={item} />
+        <StyledListItem key={item.id} item={item} />
       ))}
     </ul>
   );
