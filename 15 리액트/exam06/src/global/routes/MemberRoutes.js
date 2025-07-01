@@ -6,8 +6,10 @@ import LoginPage from '../../member/pages/LoginPage';
 const MemberRoutes = () => {
   return (
     <Routes>
-      <Route path="/member/join" element={<JoinPage />} />
-      <Route path="/member/login" element={<LoginPage />} />
+      <Route path="/member/">
+        <Route path="join" element={<JoinPage />} />
+        <Route path="login" element={<LoginPage />} />
+      </Route>
     </Routes>
   );
 };

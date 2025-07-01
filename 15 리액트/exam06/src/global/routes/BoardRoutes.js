@@ -8,9 +8,12 @@ import ViewPage from '../../board/pages/ViewPage';
 const BoardRoutes = () => {
   return (
     <Routes>
-      <Route path="/board/write" element={<WritePage />} />
-      <Route path="/board/list" element={<ListPage />} />
-      <Route path="/board/view" element={<ViewPage />} />
+      <Route path="/board/">
+        <Route index element={<ListPage />} />
+        <Route path="write/:bid" element={<WritePage />} />
+        <Route path="list/:bid" element={<ListPage />} />
+        <Route path="view/:seq" element={<ViewPage />} />
+      </Route>
     </Routes>
   );
 };
