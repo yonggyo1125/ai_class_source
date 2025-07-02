@@ -7,6 +7,7 @@ const MainPage = () => {
   const onClick = useCallback(() => {
     const seq = Math.floor(Math.random() * 100) + 1; // 1~100
     navigate(`/board/view/${seq}`, { replace: true }); // 방문기록을 남기지 않는 이동
+    navigate(`/board/view/${seq}`); // 방문 기록을 남기는 이동
   }, [navigate]);
   return (
     <>
@@ -18,7 +19,9 @@ const MainPage = () => {
         <Link to="/board/list">글목록</Link>
         <Link to="/board/view">글보기</Link>
       </div>
-      <button type="button" onClick={onClick}>랜덤 게시글 보기</button>
+      <button type="button" onClick={onClick}>
+        랜덤 게시글 보기
+      </button>
     </>
   );
 };
