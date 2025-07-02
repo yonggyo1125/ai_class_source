@@ -11,8 +11,11 @@ const ViewPage = () => {
 
   useEffect(() => {
     const qs = [...searchParams.entries()];
-    console.log('qs', qs);
-  }, [searchParams]);
+    //console.log('qs', qs);
+
+    //searchParams.append('k10', 'v10');
+    //setSearchParams(searchParams);
+  }, [searchParams, setSearchParams]);
 
   useEffect(() => {
     (async () => {
