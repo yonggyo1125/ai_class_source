@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const ViewPage = () => {
   const { seq } = useParams();
   const [item, setItem] = useState({});
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  //const location = useLocation();
-  //console.log('location', location);
-
-  useEffect(() => {
-    const qs = [...searchParams.entries()];
-    console.log('qs', qs);
-  }, [searchParams]);
 
   useEffect(() => {
     (async () => {
