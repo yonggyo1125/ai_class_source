@@ -15,9 +15,10 @@ const App = () => {
       </Routes>
       <MemberRoutes />
       <BoardRoutes />
+      {/*
       <Routes>
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      </Routes> */}
     </>
   );
 };
