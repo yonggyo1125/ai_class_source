@@ -1,11 +1,23 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 const MainLayout = () => {
   return (
     <>
       <header>
-        <h1>상단 공통</h1>
+        <NavLink
+          to="/member/login"
+          className={({ isActive }) => classNames({ on: isActive })}
+        >
+          로그인
+        </NavLink>
+        <NavLink
+          to="/member/join"
+          className={({ isActive }) => classNames({ on: isActive })}
+        >
+          회원가입
+        </NavLink>
       </header>
       <main>
         <Outlet />

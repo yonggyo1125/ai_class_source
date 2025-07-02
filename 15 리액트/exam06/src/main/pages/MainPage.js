@@ -1,14 +1,20 @@
-import React, { useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useCallback, useEffect } from 'react';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const isLoggedIn = false; // 로그인 상태가 아니면
 
   const onClick = useCallback(() => {
     const seq = Math.floor(Math.random() * 100) + 1; // 1~100
     navigate(`/board/view/${seq}`, { replace: true }); // 방문기록을 남기지 않는 이동
     navigate(`/board/view/${seq}`); // 방문 기록을 남기는 이동
   }, [navigate]);
+
+  // if (!isLoggedIn) {
+  //   return <Navigate to="/login" />;
+  // }
+
   return (
     <>
       <h1>메인페이지...</h1>
