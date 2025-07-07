@@ -1,11 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import loadable from '@loadable/component';
 
-import WritePage from '../../board/pages/WritePage';
-import ListPage from '../../board/pages/ListPage';
-import ViewPage from '../../board/pages/ViewPage';
-import ListMainPage from '../../board/pages/ListMainPage';
-import MainLayout from '../layouts/MainLayout';
+const WritePage = loadable(() => import('../../board/pages/WritePage'));
+const ListPage = loadable(() => import('../../board/pages/ListPage'));
+const ViewPage = loadable(() => import('../../board/pages/ViewPage'));
+const ListMainPage = loadable(() => import('../../board/pages/ListMainPage'));
+const MainLayout = loadable(() => import('../layouts/MainLayout'));
+
+// import WritePage from '../../board/pages/WritePage';
+// import ListPage from '../../board/pages/ListPage';
+// import ViewPage from '../../board/pages/ViewPage';
+// import ListMainPage from '../../board/pages/ListMainPage';
+// import MainLayout from '../layouts/MainLayout';
 
 const BoardRoutes = () => {
   return (
