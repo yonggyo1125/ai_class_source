@@ -17,3 +17,5 @@ const SelectColors = () => {
     </div>
   );
 };
+
+export default SelectColors;
