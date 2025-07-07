@@ -1,4 +1,4 @@
-import ColorBox from './components/ColorBox';
+import ColorBox from './components/ColorBox2';
 //import ColorContext from './contexts/color';
 import { ColorProvider } from './contexts/color';
 
