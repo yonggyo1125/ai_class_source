@@ -1,13 +1,22 @@
 import ColorBox from './components/ColorBox';
-import ColorContext from './contexts/color';
+//import ColorContext from './contexts/color';
+import { ColorProvider } from './contexts/color';
 
 const App = () => {
   return (
-    <ColorContext.Provider value={{ color: 'red' }}>
+    <ColorProvider>
       <ColorBox />
-    </ColorContext.Provider>
+    </ColorProvider>
   );
 };
+
+// const App = () => {
+//   return (
+//     <ColorContext.Provider value={{ color: 'red' }}>
+//       <ColorBox />
+//     </ColorContext.Provider>
+//   );
+// };
 
 // import RenderPropsEx from './components/RenderPropsEx';
 
