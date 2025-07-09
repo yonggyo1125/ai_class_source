@@ -11,6 +11,10 @@ const SelectColors = () => {
       {colors.map((color, i) => (
         <span
           onClick={() => setColor(color)}
+          onContextMenu={(e) => {
+            e.preventDefault();
+            setSubcolor(color);
+          }}
           key={color + '-' + i}
           style={{
             width: '45px',
