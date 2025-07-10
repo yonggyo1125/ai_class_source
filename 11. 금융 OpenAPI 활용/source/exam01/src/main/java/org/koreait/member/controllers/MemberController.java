@@ -1,5 +1,7 @@
 package org.koreait.member.controllers;
 
+import jakarta.validation.Valid;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberController {
 
     @PostMapping("/join")
-    public void join(@RequestBody RequestJoin form) {
+    public void join(@RequestBody @Valid RequestJoin form, Errors errors) {
+
         System.out.println(form);
     }
 }
