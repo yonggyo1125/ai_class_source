@@ -1,6 +1,7 @@
 package org.koreait.member.controllers;
 
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -18,7 +19,11 @@ public class MemberController {
     @PostMapping("/join")
     public ResponseEntity<Object> join(@RequestBody @Valid RequestJoin form, Errors errors) {
 
-        ResponseEntity<Object> res = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("header1", "value1");
+        headers.add("header2", "value2");
+
+        ResponseEntity<Object> res = new ResponseEntity<>(headers, HttpStatus.NO_CONTENT);
 
         if (errors.hasErrors()) {
             List<String> errorMessages = errors.getFieldErrors().stream().map(e -> e.getDefaultMessage()).toList();

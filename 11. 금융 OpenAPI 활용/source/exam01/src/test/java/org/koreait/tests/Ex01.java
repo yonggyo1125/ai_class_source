@@ -26,8 +26,8 @@ public class Ex01 {
     void test1() throws Exception {
         RequestJoin form = new RequestJoin();
         form.setEmail("user01@test.org");
-        //form.setPassword("12345678");
-        //form.setName("사용자01");
+        form.setPassword("12345678");
+        form.setName("사용자01");
 
         String json = om.writeValueAsString(form);
 
