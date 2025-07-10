@@ -22,6 +22,7 @@ public class MemberController {
                         .name("사용자" + i)
                         .createdAt(LocalDateTime.now())
                         .build()).toList();
+        return members;
     }
 //    @ResponseStatus(HttpStatus.NO_CONTENT)
 //    public void info() {
