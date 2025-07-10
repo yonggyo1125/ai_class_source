@@ -1,6 +1,7 @@
 package org.koreait.member.controllers;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberController {
 
     @PostMapping("/join")
-    public void join(RequestJoin form) {
+    public void join(@RequestBody RequestJoin form) {
         System.out.println(form);
     }
 }
