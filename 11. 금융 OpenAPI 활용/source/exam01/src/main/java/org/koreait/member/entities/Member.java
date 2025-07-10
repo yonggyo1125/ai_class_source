@@ -1,6 +1,5 @@
 package org.koreait.member.entities;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
@@ -11,7 +10,6 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class Member {
-    @JsonAlias("no")
     private Long seq;
     private String email;
 
