@@ -14,6 +14,10 @@ public class MemberController {
     @PostMapping("/join")
     public void join(@RequestBody @Valid RequestJoin form, Errors errors) {
 
+        if (errors.hasErrors()) {
+            errors.getFieldErrors().stream().forEach(e -> System.out.println(e.getDefaultMessage()));
+        }
+
         System.out.println(form);
     }
 }
