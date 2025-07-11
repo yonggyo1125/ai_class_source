@@ -1,0 +1,31 @@
+package org.koreait.tests;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
+
+@SpringBootTest
+public class Ex02 {
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Test
+    void test1() {
+        String url = "https://pokeapi.co/api/v2/pokemon";
+        String response = restTemplate.getForObject(URI.create(url), String.class);
+        System.out.println(response);
+    }
+
+    @Test
+    void test2() {
+        String url = "https://pokeapi.co/api/v2/pokemon";
+        ResponseEntity<String> response = restTemplate.getForEntity(URI.create(url), String.class);
+        System.out.println("------ 응답 헤더 ------");
+
+
+    }
+}
