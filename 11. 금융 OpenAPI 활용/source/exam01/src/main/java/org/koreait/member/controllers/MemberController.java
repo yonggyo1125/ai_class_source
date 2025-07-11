@@ -1,13 +1,12 @@
 package org.koreait.member.controllers;
 
 import jakarta.validation.Valid;
+import org.koreait.global.exceptions.BadRequestException;
 import org.koreait.global.rests.JSONError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/member")
@@ -17,8 +16,7 @@ public class MemberController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void join(@RequestBody @Valid RequestJoin form, Errors errors) {
         if (errors.hasErrors()) {
-            List<String> errorMessags = errors.getFieldErrors().stream().map(e -> e.getDefaultMessage()).toList();
-            throw new IllegalArgumentException(er)
+            throw new BadRequestException(errors);
 
         }
     }
@@ -41,13 +39,7 @@ public class MemberController {
         }
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<JSONError<String>> errorHandler(Exception e) {
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-        JSONError<String> error = new JSONError<>(status, e.getMessage());
 
-        return ResponseEntity.status(status).body(error);
-    }
 
 //    public ResponseEntity<Object> join(@RequestBody @Valid RequestJoin form, Errors errors) {
 //
