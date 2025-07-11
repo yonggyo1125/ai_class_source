@@ -1,12 +1,11 @@
 package org.koreait.member.controllers;
 
 import jakarta.validation.Valid;
+import org.koreait.global.rests.JSONError;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,16 +14,24 @@ import java.util.List;
 public class MemberController {
 
     @PostMapping("/join")
-    public ResponseEntity<Object> join(@RequestBody @Valid RequestJoin form, Errors errors) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void join(@RequestBody @Valid RequestJoin form, Errors errors) {
         if (errors.hasErrors()) {
             List<String> errorMessags = errors.getFieldErrors().stream().map(e -> e.getDefaultMessage()).toList();
-            //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessags);
-            return ResponseEntity.badRequest().body(errorMessags);
-        }
+            throw new IllegalArgumentException(er)
 
-        //return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        return ResponseEntity.noContent().build();
+        }
     }
+//    public ResponseEntity<Object> join(@RequestBody @Valid RequestJoin form, Errors errors) {
+//        if (errors.hasErrors()) {
+//            List<String> errorMessags = errors.getFieldErrors().stream().map(e -> e.getDefaultMessage()).toList();
+//            //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessags);
+//            return ResponseEntity.badRequest().body(errorMessags);
+//        }
+//
+//        //return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//        return ResponseEntity.noContent().build();
+//    }
 
     @PostMapping("/login")
     public void login() {
@@ -34,7 +41,13 @@ public class MemberController {
         }
     }
 
-    public ResponseEntity<>
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<JSONError<String>> errorHandler(Exception e) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        JSONError<String> error = new JSONError<>(status, e.getMessage());
+
+        return ResponseEntity.status(status).body(error);
+    }
 
 //    public ResponseEntity<Object> join(@RequestBody @Valid RequestJoin form, Errors errors) {
 //
