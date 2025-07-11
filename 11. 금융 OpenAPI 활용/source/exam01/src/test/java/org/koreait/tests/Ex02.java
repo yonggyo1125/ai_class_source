@@ -1,6 +1,7 @@
 package org.koreait.tests;
 
 import org.junit.jupiter.api.Test;
+import org.koreait.pokemon.api.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
@@ -17,7 +18,7 @@ public class Ex02 {
     @Test
     void test1() {
         String url = "https://pokeapi.co/api/v2/pokemon";
-        String response = restTemplate.getForObject(URI.create(url), String.class);
+        ApiResponse response = restTemplate.getForObject(URI.create(url), ApiResponse.class);
         System.out.println(response);
     }
 
