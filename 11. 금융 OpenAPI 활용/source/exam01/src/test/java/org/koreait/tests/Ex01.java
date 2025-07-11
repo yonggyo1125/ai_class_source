@@ -26,7 +26,7 @@ public class Ex01 {
     void test1() throws Exception {
         RequestJoin form = new RequestJoin();
         form.setEmail("user01@test.org");
-        form.setPassword("12345678");
+        //form.setPassword("12345678");
         form.setName("사용자01");
 
         String json = om.writeValueAsString(form);
@@ -35,6 +35,11 @@ public class Ex01 {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json)
         ).andDo(print());
+    }
 
+    @Test
+    void test2() throws Exception {
+        mockMvc.perform(post("/api/v1/member/login"))
+                .andDo(print());
     }
 }
