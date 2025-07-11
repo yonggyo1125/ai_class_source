@@ -3,6 +3,7 @@ package org.koreait.tests;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,7 +26,12 @@ public class Ex02 {
         String url = "https://pokeapi.co/api/v2/pokemon";
         ResponseEntity<String> response = restTemplate.getForEntity(URI.create(url), String.class);
         System.out.println("------ 응답 헤더 ------");
+        HttpHeaders headers = response.getHeaders();
+        headers.forEach( (k, v) -> System.out.printf("%s:%s%n", k, v));
 
+        System.out.println("------ 응답 바디 ------");
+        String body = response.getBody();
+        System.out.println(body) ;
 
     }
 }
