@@ -29,11 +29,16 @@ public class Ex02 {
 
         em.persist(member);
         em.flush();
+        em.clear();
     }
 
     @Test
     void test1() {
         Member member = em.find(Member.class, 1L);
         System.out.println(member);
+
+        Member member2 = em.find(Member.class, 1L);
+        System.out.println(member2);
+        System.out.println(member == member2);
     }
 }
