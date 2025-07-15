@@ -7,6 +7,12 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Table(name="kit_member",
+        indexes = {
+            @Index(name="idx_member_created_at", columnList = "createdAt DESC"),
+                @Index(name="uq_member_email_name", columnList = "email, name", unique = true)
+        })
+
 public class Member {
 
 
@@ -18,7 +24,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
-    @Column(unique = true, nullable = false, length=80)
+    @Column(nullable = false, length=80)
     private String email;
 
     @Column(name="passwd", nullable = false, length=65)
