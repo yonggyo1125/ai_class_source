@@ -16,7 +16,7 @@ public class Ex03 {
     private EntityManager em;
 
     @Test
-    void test1() {
+    void test1() throws Exception {
         Member member = new Member();
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
@@ -25,7 +25,20 @@ public class Ex03 {
 
         em.persist(member);
         em.flush();
+        em.clear();
 
-        System.out.println(member);
+        member = em.find(Member.class, 1L);
+        // 최초 추가시
+        System.out.printf("createdAt:%s, modifiedAt:%s%n", member.getCreatedAt(), member.getModifiedAt());
+
+        Thread.sleep(5000);
+
+        member.setName("(수정)사용자01");
+        em.flush();
+        em.clear();
+
+        // 수정 후
+        member = em.find(Member.class, 1L);
+        System.out.printf("createdAt:%s, modifiedAt:%s%n", member.getCreatedAt(), member.getModifiedAt());
     }
 }

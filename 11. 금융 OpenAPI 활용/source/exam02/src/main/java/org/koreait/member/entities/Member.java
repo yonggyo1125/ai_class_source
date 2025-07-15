@@ -2,9 +2,8 @@ package org.koreait.member.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.koreait.global.entities.BaseEntity;
 import org.koreait.member.constants.Authority;
-
-import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 //            @Index(name="idx_member_created_at", columnList = "createdAt DESC"),
 //                @Index(name="uq_member_email_name", columnList = "email, name", unique = true)
 //        })
-public class Member {
+public class Member extends BaseEntity {
 
 
 //    @Id
@@ -39,9 +38,6 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
 
     @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
     private String profileImage;
