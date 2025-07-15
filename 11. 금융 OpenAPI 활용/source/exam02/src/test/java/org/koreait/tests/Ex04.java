@@ -41,4 +41,20 @@ public class Ex04 {
         List<Member> members = repository.findAll();
         members.forEach(System.out::println);
     }
+
+    @Test
+    void test2() {
+        Member member = repository.findById(1L).orElse(null);
+        System.out.println(member);
+    }
+
+    @Test
+    void test3() {
+//        Member member = repository.findByEmail("user1@test.org");
+//        if (member == null) {
+//            //throw ...
+//        }
+
+        Member member = repository.findByEmail("user1@test.org").orElseThrow(RuntimeException::new);
+    }
 }
