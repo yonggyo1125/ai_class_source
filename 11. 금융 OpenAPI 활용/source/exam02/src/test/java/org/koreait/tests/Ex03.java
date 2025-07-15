@@ -34,6 +34,7 @@ public class Ex03 {
         Thread.sleep(5000);
 
         member.setName("(수정)사용자01");
+        member.setCreatedAt(LocalDateTime.now());
         em.flush();
         em.clear();
 
