@@ -29,7 +29,7 @@ public class Ex01 {
     void test1() {
 
         Member member = new Member();
-        member.setSeq(1L);
+        //member.setSeq(1L);
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
         member.setName("사용자01");
@@ -48,7 +48,7 @@ public class Ex01 {
     @Test
     void test2() {
         Member member = new Member();
-        member.setSeq(1L);
+        //member.setSeq(1L);
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
         member.setName("사용자01");
