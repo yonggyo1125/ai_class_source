@@ -57,4 +57,16 @@ public class Ex04 {
 
         Member member = repository.findByEmail("user1@test.org").orElseThrow(RuntimeException::new);
     }
+
+    @Test
+    void test4() {
+        List<Member> members = repository.findByEmailContainingOrNameContaining("user", "사용자");
+        members.forEach(System.out::println);
+    }
+
+    @Test
+    void test5() {
+        List<Member> members = repository.findByEmailContainingOrNameContainingOrderByCreatedAtDesc("user", "사용자");
+        members.forEach(System.out::println);
+    }
 }
