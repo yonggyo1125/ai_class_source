@@ -2,6 +2,7 @@ package org.koreait.member.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.koreait.global.entities.Address;
 import org.koreait.global.entities.BaseEntity;
 import org.koreait.member.constants.Authority;
 
@@ -38,6 +39,9 @@ public class Member extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
+
+    @Embedded
+    private Address address;
 
     @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
     private String profileImage;
