@@ -79,4 +79,19 @@ public class Ex05 {
             System.out.printf("email=%s, name=%s%n", email, name);
         }
     }
+
+    @Test
+    void test5() {
+        QMember member = QMember.member;
+
+        JPAQuery<Member> query = queryFactory.selectFrom(member)
+                .where(member.email.contains("user"))
+                .where(member.name.contains("사용자"))
+                .orderBy(member.createdAt.desc())
+                .offset(0L)
+                .limit(3L);
+
+        List<Member> members = query.fetch();
+        members.forEach(System.out::println);
+    }
 }
