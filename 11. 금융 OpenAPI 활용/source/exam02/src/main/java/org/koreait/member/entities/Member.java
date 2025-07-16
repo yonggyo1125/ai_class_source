@@ -51,7 +51,7 @@ public class Member extends BaseEntity {
     private String profileImage;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch=FetchType.EAGER)
     private List<BoardData> items;
 
 //    @Temporal(TemporalType.DATE)

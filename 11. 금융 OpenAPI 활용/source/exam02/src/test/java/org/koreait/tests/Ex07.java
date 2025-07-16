@@ -58,7 +58,12 @@ public class Ex07 {
     @Test
     void test1() {
         BoardData item = boardDataRepository.findById(1L).orElse(null);
-        System.out.println(item);
+
+        Member member = item.getMember();
+        String email = member.getEmail();
+        System.out.println(email);
+        //System.out.println(item);
+
     }
 
     @Test
