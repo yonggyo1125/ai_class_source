@@ -69,4 +69,10 @@ public class Ex04 {
         List<Member> members = repository.findByEmailContainingOrNameContainingOrderByCreatedAtDesc("user", "사용자");
         members.forEach(System.out::println);
     }
+
+    @Test
+    void test6() {
+        List<Member> members = repository.getContents("user", "사용자");
+        members.forEach(System.out::println);
+    }
 }
