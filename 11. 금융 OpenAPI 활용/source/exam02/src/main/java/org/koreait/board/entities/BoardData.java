@@ -3,6 +3,7 @@ package org.koreait.board.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.koreait.global.entities.BaseEntity;
+import org.koreait.member.entities.Member;
 
 @Data
 @Entity
@@ -11,6 +12,10 @@ public class BoardData extends BaseEntity {
     @Id
     @GeneratedValue
     private Long seq;
+
+    @ManyToOne
+    @JoinColumn(name="mSeq")
+    private Member member;
 
     @Column(nullable = false)
     private String subject;

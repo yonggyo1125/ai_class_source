@@ -65,7 +65,7 @@ public class Ex06 {
 
     @Test
     void test3() {
-        QMember member = QMember.member;
+       // QMember member = QMember.member;
         Pageable pageable = PageRequest.of(0, 3, Sort.by(desc("createdAt")));
         Page<Member> data= repository.findAll(pageable);
         long total = data.getTotalElements();
