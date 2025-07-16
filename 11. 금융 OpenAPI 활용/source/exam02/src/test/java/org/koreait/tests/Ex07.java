@@ -3,6 +3,7 @@ package org.koreait.tests;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.koreait.board.entities.BoardData;
 import org.koreait.board.repositories.BoardDataRepository;
 import org.koreait.member.constants.Authority;
@@ -48,5 +49,13 @@ public class Ex07 {
         }
 
         boardDataRepository.saveAllAndFlush(items);
+
+        em.clear(); // 영속성을 비워야 캐시된 쪽에서 가져오는게 아니라 직접 SQL 실행
+    }
+
+    @Test
+    void test1() {
+        BoardData item = boardDataRepository.findById(1L).orElse(null);
+        System.out.println(item);
     }
 }
