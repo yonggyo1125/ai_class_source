@@ -1,5 +1,6 @@
 package org.koreait.tests;
 
+import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.junit.jupiter.api.BeforeEach;
@@ -66,5 +67,16 @@ public class Ex05 {
         JPAQuery<String> query = queryFactory.select(member.email).from(member);
         List<String> emails = query.fetch();
         System.out.println(emails);
+    }
+
+    @Test
+    void test4() {
+        QMember member = QMember.member;
+        JPAQuery<Tuple> query = queryFactory.select(member.email, member.name).from(member);
+        for (Tuple item : query.fetch()) {
+            String email = item.get(member.email);
+            String name = item.get(1, String.class);
+            System.out.printf("email=%s, name=%s%n", email, name);
+        }
     }
 }
