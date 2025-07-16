@@ -2,9 +2,13 @@ package org.koreait.member.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+import org.koreait.board.entities.BoardData;
 import org.koreait.global.entities.Address;
 import org.koreait.global.entities.BaseEntity;
 import org.koreait.member.constants.Authority;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -45,6 +49,10 @@ public class Member extends BaseEntity {
 
     @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
     private String profileImage;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "member")
+    private List<BoardData> items;
 
 //    @Temporal(TemporalType.DATE)
 //    private Date modifiedAt;

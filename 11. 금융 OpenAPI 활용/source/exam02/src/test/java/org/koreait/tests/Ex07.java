@@ -12,11 +12,13 @@ import org.koreait.member.repositories.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+@Transactional
 @ActiveProfiles({"default", "test"})
 public class Ex07 {
     @Autowired
@@ -57,5 +59,12 @@ public class Ex07 {
     void test1() {
         BoardData item = boardDataRepository.findById(1L).orElse(null);
         System.out.println(item);
+    }
+
+    @Test
+    void test2() {
+        Member member = memberRepository.findById(1L).orElse(null);
+        List<BoardData> items = member.getItems();
+        items.forEach(System.out::println);
     }
 }
