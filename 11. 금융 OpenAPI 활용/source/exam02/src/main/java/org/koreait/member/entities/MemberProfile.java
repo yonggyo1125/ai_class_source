@@ -2,6 +2,7 @@ package org.koreait.member.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -10,6 +11,7 @@ public class MemberProfile {
     @GeneratedValue
     private Long seq;
 
+    @ToString.Exclude
     @OneToOne(mappedBy = "profile", fetch= FetchType.LAZY)
     private Member member;
 
