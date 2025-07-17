@@ -72,4 +72,20 @@ public class Ex07 {
         List<BoardData> items = member.getItems();
         items.forEach(System.out::println);
     }
+
+    @Test
+    void test3() {
+        List<BoardData> items = boardDataRepository.findAll();
+        for (BoardData item : items) {
+            Member member = item.getMember();
+            String email = member.getEmail();
+            String name = member.getName();
+            System.out.printf("email=%s, name=%s%n", email, name);
+        }
+    }
+
+    @Test
+    void test4() {
+        List<BoardData> items = boardDataRepository.getList();
+    }
 }
