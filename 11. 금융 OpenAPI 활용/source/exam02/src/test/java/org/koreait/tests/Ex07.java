@@ -1,10 +1,12 @@
 package org.koreait.tests;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.koreait.board.entities.BoardData;
+import org.koreait.board.entities.QBoardData;
 import org.koreait.board.repositories.BoardDataRepository;
 import org.koreait.member.constants.Authority;
 import org.koreait.member.entities.Member;
@@ -29,6 +31,10 @@ public class Ex07 {
 
     @PersistenceContext
     private EntityManager em;
+
+    @Autowired
+    private JPAQueryFactory queryFactory;
+
 
     @BeforeEach
     void init() {
@@ -87,5 +93,37 @@ public class Ex07 {
     @Test
     void test4() {
         List<BoardData> items = boardDataRepository.getList();
+        for (BoardData item : items) {
+            Member member = item.getMember();
+            String email = member.getEmail();
+            String name = member.getName();
+            System.out.printf("email=%s, name=%s%n", email, name);
+        }
+    }
+
+    @Test
+    void test5() {
+        List<BoardData> items = boardDataRepository.getList2(); // Fetch Join
+        for (BoardData item : items) {
+            Member member = item.getMember();
+            String email = member.getEmail();
+            String name = member.getName();
+            System.out.printf("email=%s, name=%s%n", email, name);
+        }
+    }
+
+    @Test
+    void test6() {
+        QBoardData boardData = QBoardData.boardData;
+        List<BoardData> items = queryFactory.selectFrom(boardData)
+                .leftJoin(boardData.member)
+                .fetch();
+
+        for (BoardData item : items) {
+            Member member = item.getMember();
+            String email = member.getEmail();
+            String name = member.getName();
+            System.out.printf("email=%s, name=%s%n", email, name);
+        }
     }
 }
