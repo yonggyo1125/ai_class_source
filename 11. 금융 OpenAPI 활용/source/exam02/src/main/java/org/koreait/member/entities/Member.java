@@ -54,7 +54,7 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", fetch=FetchType.LAZY)
     private List<BoardData> items;
 
-    @OneToOne
+    @OneToOne(fetch=FetchType.LAZY)
     private MemberProfile profile;
 
 //    @Temporal(TemporalType.DATE)
