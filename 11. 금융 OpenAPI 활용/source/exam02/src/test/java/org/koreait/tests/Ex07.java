@@ -127,4 +127,15 @@ public class Ex07 {
             System.out.printf("email=%s, name=%s%n", email, name);
         }
     }
+
+    @Test
+    void test7() {
+        List<BoardData> items = boardDataRepository.findBySubjectContaining("제목");
+        for (BoardData item : items) {
+            Member member = item.getMember();
+            String email = member.getEmail();
+            String name = member.getName();
+            System.out.printf("email=%s, name=%s%n", email, name);
+        }
+    }
 }
