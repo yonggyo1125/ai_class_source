@@ -117,6 +117,7 @@ public class Ex07 {
         QBoardData boardData = QBoardData.boardData;
         List<BoardData> items = queryFactory.selectFrom(boardData)
                 .leftJoin(boardData.member)
+                .fetchJoin()
                 .fetch();
 
         for (BoardData item : items) {
