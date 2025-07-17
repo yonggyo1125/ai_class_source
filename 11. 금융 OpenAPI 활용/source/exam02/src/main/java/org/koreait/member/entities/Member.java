@@ -46,13 +46,16 @@ public class Member extends BaseEntity {
 
     @Embedded
     private Address address;
-
-    @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
-    private String profileImage;
+//
+//    @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
+//    private String profileImage;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "member", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "member", fetch=FetchType.LAZY)
     private List<BoardData> items;
+
+    @OneToOne
+    private MemberProfile profile;
 
 //    @Temporal(TemporalType.DATE)
 //    private Date modifiedAt;
