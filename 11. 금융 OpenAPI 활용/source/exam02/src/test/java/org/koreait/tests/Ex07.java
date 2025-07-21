@@ -138,4 +138,23 @@ public class Ex07 {
             System.out.printf("email=%s, name=%s%n", email, name);
         }
     }
+
+    @Test
+    void test8() {
+        Member member = memberRepository.findById(1L).orElse(null);
+        memberRepository.delete(member);
+        memberRepository.flush();
+    }
+
+    @Test
+    void test9() {
+        Member member = memberRepository.findById(1L).orElse(null);
+        List<BoardData> items = member.getItems();
+        //items.get(0).setMember(null);
+        //items.get(1).setMember(null);
+        items.remove(0);
+        items.remove(1);
+
+        memberRepository.flush();
+    }
 }
