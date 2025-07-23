@@ -11,3 +11,14 @@ const fruits2: (string | number)[] = [1, '사과']
 
 // 배열 - 자료형의 갯수와 순서를 고정 - 튜플
 const fruits3: [string, number] = ['사과', 10]
+
+// 객체 타입
+// type userType = {
+//   name: string
+//   age: number
+//   address?: string // ? : 옵셔널 체이닝, 있어도 되고 없어도 되는 경우
+// }
+// const user: userType = {
+//   name: '이이름',
+//   age: 40,
+// }
