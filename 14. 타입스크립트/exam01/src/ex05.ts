@@ -7,7 +7,7 @@ function sayHello2(name: string): string {
   return `${name}님 반갑습니다.`
 }
 
-type CallbackType = (string) => void // 함수 타입 
+type CallbackType = (a: string) => void // 함수 타입 
 
 function sayHello3(name: string, callback: CallbackType) {
     console.log('name', name)
