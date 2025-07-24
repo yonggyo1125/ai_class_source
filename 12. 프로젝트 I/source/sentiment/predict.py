@@ -16,7 +16,7 @@ with open(f"{base_path}/processed/category.json", "r") as f:
     category = json.load(f)
 
 # 사전 학습된 모델 불러오기
-model = AutoModelForSequenceClassification.from_pretrained(f"{base_path}/bert_sentimental/checkpoint-163930", num_labels=len(category))
+model = AutoModelForSequenceClassification.from_pretrained(f"{base_path}/model", num_labels=len(category))
 
 # 토크나이저 
 tokenizer = AutoTokenizer.from_pretrained('bongsoo/bert-small-kor-v1')
