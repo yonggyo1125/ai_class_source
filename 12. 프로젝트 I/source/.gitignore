@@ -2,3 +2,5 @@
 bert_sentimental/
 model/
 chatbot3/data/
+chatbot3/processed/
+chatbot3/processed2/
