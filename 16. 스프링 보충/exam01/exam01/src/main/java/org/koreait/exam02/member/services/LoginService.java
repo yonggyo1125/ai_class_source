@@ -1,27 +1,19 @@
 package org.koreait.exam02.member.services;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.koreait.exam02.RequestLogin;
 import org.koreait.exam02.member.repositories.MemberDao;
 import org.koreait.exam02.member.validators.LoginValidator;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class LoginService {
-    private MemberDao memberDao;
+    private final MemberDao memberDao;
+    @NonNull
     private LoginValidator validator;
 
-    @Autowired
-    public void setMemberDao(MemberDao memberDao) {
-        this.memberDao = memberDao;
-    }
-
-    //@Autowired(required = false)
-    @Autowired
-    //@Qualifier("L2")
-    public void setValidator(@Nullable LoginValidator validator) {
-        System.out.println("호출!");
-        this.validator = validator;
-    }
 
     public void process(RequestLogin form) {
         if (validator != null) {

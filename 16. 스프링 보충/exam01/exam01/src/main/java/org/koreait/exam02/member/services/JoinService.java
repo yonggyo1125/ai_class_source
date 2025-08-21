@@ -1,17 +1,19 @@
 package org.koreait.exam02.member.services;
 
+import lombok.RequiredArgsConstructor;
 import org.koreait.exam02.member.RequestJoin;
 import org.koreait.exam02.member.repositories.MemberDao;
 import org.koreait.exam02.member.validators.JoinValidator;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class JoinService {
 
-    @Autowired
-    private MemberDao memberDao;
 
-    @Autowired
-    private JoinValidator validator;
+    private final MemberDao memberDao;
+
+    private final JoinValidator validator;
 
 
     public void process(RequestJoin form) {
