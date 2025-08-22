@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework:spring-context:6.2.10'
+    implementation 'org.aspectj:aspectjweaver:1.9.24'
     compileOnly 'org.projectlombok:lombok:1.18.38'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
